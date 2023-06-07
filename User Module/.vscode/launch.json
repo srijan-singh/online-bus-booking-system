@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-BookingModuleApplication<booking-module>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.ibm.bookingmodule.BookingModuleApplication",
+            "projectName": "booking-module",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
