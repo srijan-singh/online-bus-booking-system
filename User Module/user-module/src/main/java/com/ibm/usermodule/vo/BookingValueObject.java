@@ -1,21 +1,34 @@
+/**
+ * Module: User Module
+ * Aim: To provide the value object for booking
+ * Author: Srijan Singh
+ * Date: 07/06/2023
+ */
 package com.ibm.usermodule.vo;
 
+/**
+ * Value object for booking
+ */
 public class BookingValueObject {
-    
+   
+    /**
+     * Attributes
+     */
     private int id;
-
-    private int seaNumber;
-
+    private int seatNumber;
     private String status;
+    private int userID;         // Foreign key
+    private int scheduleID;     // Foreign key
 
-    //Foreign key from User Module
-    private int userID;
-    //Foreigh key from Bus Schedule Module
-    private int scheduleID;
-    
+    /**
+     * Constructor
+     */
     public BookingValueObject() {
     }
 
+    /**
+     * Getter and Setter
+     */
     public int getId() {
         return id;
     }
@@ -24,12 +37,12 @@ public class BookingValueObject {
         this.id = id;
     }
 
-    public int getSeaNumber() {
-        return seaNumber;
+    public int getSeatNumber() {
+        return seatNumber;
     }
 
-    public void setSeaNumber(int seaNumber) {
-        this.seaNumber = seaNumber;
+    public void setSeatNumber(int seatNumber) {
+        this.seatNumber = seatNumber;
     }
 
     public String getStatus() {

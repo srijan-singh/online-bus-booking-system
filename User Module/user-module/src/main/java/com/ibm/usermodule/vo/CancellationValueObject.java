@@ -1,18 +1,35 @@
+/**
+ * Module: User Module
+ * Dependency: BookingValueObject
+ * Aim: To provide value object for cancellation
+ * Author: Srijan Singh
+ * Date: 07/06/2023
+ */
 package com.ibm.usermodule.vo;
 
+/**
+ * Value object for cancellation
+ */
 public class CancellationValueObject {
 
+    /**
+     * Attributes
+     */
     private int id;
 
-    private int rating;
-
-    private String comment;
+    private String reason;
 
     private BookingValueObject booking;
 
+    /**
+     * Constructor
+     */
     public CancellationValueObject() {
     }
 
+    /**
+     * Getter and Setter
+     */
     public int getId() {
         return id;
     }
@@ -21,20 +38,13 @@ public class CancellationValueObject {
         this.id = id;
     }
 
-    public int getRating() {
-        return rating;
+    
+    public String getReason() {
+        return reason;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setReason(String reason) {
+        this.reason = reason;
     }
 
     public BookingValueObject getBooking() {
