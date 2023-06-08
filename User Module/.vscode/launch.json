@@ -20,6 +20,16 @@
             "projectName": "user-module",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-UserBookingRegistryApplication<user-booking-registry>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.ibm.userbookingregistry.UserBookingRegistryApplication",
+            "projectName": "user-booking-registry",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
