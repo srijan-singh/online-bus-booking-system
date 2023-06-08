@@ -9,33 +9,18 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ibm</groupId>
-	<artifactId>online-bus-booking</artifactId>
+	<artifactId>api-registry</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>online-bus-booking</name>
-	<description>Cloud Gateway for Online Bus Booking</description>
+	<name>api-registry</name>
+	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>20</java.version>
 		<spring-cloud.version>2021.0.7</spring-cloud.version>
 	</properties>
 	<dependencies>
-
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-circuitbreaker-reactor-resilience4j</artifactId>
-		</dependency>
-
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-gateway</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
 
 		<dependency>

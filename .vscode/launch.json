@@ -1,0 +1,44 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ApiRegistryApplication<api-registry>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.ibm.apiregistry.ApiRegistryApplication",
+            "projectName": "api-registry",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-OnlineBusBookingApplication<online-bus-booking>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.ibm.onlinebusbooking.OnlineBusBookingApplication",
+            "projectName": "online-bus-booking",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-BookingModuleApplication<booking-module>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.ibm.bookingmodule.BookingModuleApplication",
+            "projectName": "booking-module",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-UserModuleApplication<user-module>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.ibm.usermodule.UserModuleApplication",
+            "projectName": "user-module",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
