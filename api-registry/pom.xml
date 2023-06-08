@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ibm</groupId>
-	<artifactId>user-booking-registry</artifactId>
+	<artifactId>api-registry</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>user-booking-registry</name>
+	<name>api-registry</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>20</java.version>
