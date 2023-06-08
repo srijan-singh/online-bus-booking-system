@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-BookingModuleApplication<booking-module>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.ibm.bookingmodule.BookingModuleApplication",
+            "projectName": "booking-module",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=63415 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=booking-module"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-UserModuleApplication<user-module>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.ibm.usermodule.UserModuleApplication",
+            "projectName": "user-module",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
