@@ -1,7 +1,8 @@
 /**
  * Main Module: Booking Module
  * Sub Module: Cancellation
- * Description: Contains required details for Cancellation
+ * Dependencies: Booking
+ * Aim: To provide the entity for cancellation
  * Author: Srijan Singh
  * Date: 07/06/2023
  */
@@ -17,18 +18,30 @@ import javax.persistence.OneToOne;
 @Entity
 public class Cancellation {
     
+    /**
+     * Cancellation ID
+     */
     @Id
     @GeneratedValue
     @Column(name = "cancellation_id")
     private int id;
 
+    /**
+     * Reason for cancellation
+     */
     private String reason;
 
-    // Booking
+    /**
+     * Booking ID
+     * Foreign key from Booking Module
+     */
     @OneToOne
     @JoinColumn(name = "booking_id")
     private Booking booking;
 
+    /**
+     * Constructor
+     */
     public Cancellation(String reason) {
         this.reason = reason;
     }
@@ -36,6 +49,9 @@ public class Cancellation {
     public Cancellation() {
     }
 
+    /**
+     * Getters and Setters
+     */
     public int getId() {
         return id;
     }
