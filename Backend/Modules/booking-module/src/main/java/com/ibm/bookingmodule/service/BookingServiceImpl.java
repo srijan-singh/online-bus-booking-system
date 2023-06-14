@@ -7,6 +7,8 @@
  */
 package com.ibm.bookingmodule.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -58,6 +60,16 @@ public class BookingServiceImpl implements BookingService {
     public Booking getBookingDetails(int bookingID) {
         return bookingRepository.findById(bookingID).orElse(null);
     }
+    
+    /**
+     * Method to get bookings from userID
+     * @param userID
+     * @return List<booking>
+     */
+    @Override
+	public List<Booking> getBookingDetailsByUserID(int userID) {
+		return bookingRepository.getBookingsByUserID(userID);
+	}
 
     /**
      * Method to cancel a booking

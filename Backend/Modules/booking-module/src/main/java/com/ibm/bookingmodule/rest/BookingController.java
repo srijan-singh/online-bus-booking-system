@@ -7,6 +7,8 @@
  */
 package com.ibm.bookingmodule.rest;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -89,4 +91,13 @@ public class BookingController {
         return bookingService.getReviewDetails(reviewID);
     } 
 
+    /**
+     * This method uses Get Request to get the details of all booked bus ride of a user
+     * @param userID
+     * @return List<booking>
+     */
+    @GetMapping(value="/booking/all/{userID}", produces="application/json")
+    public List<Booking> getBookingDetailsByUserID(@PathVariable int userID) {
+        return bookingService.getBookingDetailsByUserID(userID);
+    }
 }
