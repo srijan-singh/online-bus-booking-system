@@ -1,6 +1,6 @@
 # Online Bus Booking System
 
-Group: Java Zedi
+Group: Java Jedi
 
 ## Entities and Relationships
 

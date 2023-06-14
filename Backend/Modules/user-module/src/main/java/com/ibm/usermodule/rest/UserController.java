@@ -53,10 +53,10 @@ public class UserController {
     /**
      * Method to login a user
      * @param user
-     * @return boolean
+     * @return userID
      */
     @PostMapping(value="/user/login", consumes="application/json")
-    public boolean loginUser(@RequestBody User user){
+    public int loginUser(@RequestBody User user){
         return userService.login(user.getEmail(), user.getPassword());
     }
     

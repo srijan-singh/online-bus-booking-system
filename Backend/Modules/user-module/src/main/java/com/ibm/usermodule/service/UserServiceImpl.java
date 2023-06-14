@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 
 import com.ibm.usermodule.entity.User;
-import com.ibm.usermodule.entity.repo.UserRepository;
+import com.ibm.usermodule.repo.UserRepository;
 import com.ibm.usermodule.vo.BookingTemplate;
 import com.ibm.usermodule.vo.BookingValueObject;
 import com.ibm.usermodule.vo.CancellationTemplate;
@@ -69,11 +69,11 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     @Override
-    public boolean login(String email, String password) {
+    public int login(String email, String password) {
         if (userRepository.findByEmailAndPassword(email, password) != null) {
-            return true;
+            return userRepository.findByEmail(email).getId();
         }
-        return false;
+        return -1;
     }
 
     /**

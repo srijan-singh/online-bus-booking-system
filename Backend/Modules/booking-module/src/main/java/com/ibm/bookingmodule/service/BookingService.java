@@ -7,6 +7,8 @@
  */
 package com.ibm.bookingmodule.service;
 
+import java.util.List;
+
 import com.ibm.bookingmodule.entity.Booking;
 import com.ibm.bookingmodule.entity.Cancellation;
 import com.ibm.bookingmodule.entity.Review;
@@ -29,6 +31,13 @@ public interface BookingService {
      * @return
      */
     Booking getBookingDetails(int bookingID);
+    
+    /**
+     * Method to get bookings from userID
+     * @param userID
+     * @return List<Booking>
+     */
+    List<Booking> getBookingDetailsByUserID(int userID);
 
     /**
      * Method to cancel a booking

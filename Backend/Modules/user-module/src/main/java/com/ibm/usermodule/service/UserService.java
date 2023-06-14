@@ -30,21 +30,21 @@ public interface UserService {
      * Method to login a user
      * @param email
      * @param password
-     * @return
+     * @return userID
      */
-    boolean login(String email, String password);
+    int login(String email, String password);
 
     /**
      * Method to update a user
      * @param user
-     * @return
+     * @return 
      */
     boolean update(User user);
 
     /**
      * Method to get a user by ID
      * @param userID
-     * @return
+     * @return User
      */
     User getUser(int userID);
 
