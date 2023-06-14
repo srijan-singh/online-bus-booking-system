@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "98a9559e-a159-499d-b4e5-38abfa882ff6",
+		"name": "Payment Controller",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Make Payment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\":500,\r\n    \"bookingId\": 108\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/payment/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"payment",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Payment by Booking ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/payment/108",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"payment",
+						"108"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
