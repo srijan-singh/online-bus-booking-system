@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "4d79a351-b7d7-42f6-9b88-553da4b875bd",
+		"name": "BookingController",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Book Bus Ride",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"seatNumber\": 22,\r\n    \"status\": \"Booked\",\r\n    \"userID\": 120,\r\n    \"scheduleID\": 210\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9002/booking/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9002",
+					"path": [
+						"booking",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Bus Ride Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/booking/get/105",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"booking",
+						"get",
+						"105"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Bus Ride",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"reason\" : \"Booked Another\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9002/booking/cancel/101",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9002",
+					"path": [
+						"booking",
+						"cancel",
+						"101"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cancelled Bus Ride Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9002/booking/cancel/get/87",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9002",
+					"path": [
+						"booking",
+						"cancel",
+						"get",
+						"87"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Review Bus Ride",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rating\": 5,\r\n    \"comment\" : \"Waah ji Waah 1!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9002/booking/review/102",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9002",
+					"path": [
+						"booking",
+						"review",
+						"102"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Reviewed Bus Ride",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9002/booking/review/get/98",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9002",
+					"path": [
+						"booking",
+						"review",
+						"get",
+						"98"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

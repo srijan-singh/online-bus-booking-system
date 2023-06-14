@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "200b995e-1c0e-4300-b282-edd9de241c7c",
+		"name": "RouteModule",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Route",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"origin\": \"Delhi\",\r\n    \"destination\": \"Agra\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9003/route/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9003",
+					"path": [
+						"route",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Route By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/route/get/107",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"route",
+						"get",
+						"107"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Route by Origin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/route/origin/delhi",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"route",
+						"origin",
+						"delhi"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

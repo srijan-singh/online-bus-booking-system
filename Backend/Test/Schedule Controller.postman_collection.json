@@ -1,0 +1,59 @@
+{
+	"info": {
+		"_postman_id": "63758764-2dd7-43fb-9431-fab3a611a00e",
+		"name": "Schedule Controller",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Make Schedule",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"departureTime\": \"2023-06-14T10:00:00\",\r\n  \"arrivalTime\": \"2023-06-14T13:00:00\",\r\n  \"availableSeats\": 40,\r\n  \"routeId\": 124,\r\n  \"bookingId\": 457\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9004/schedule/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9004",
+					"path": [
+						"schedule",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Schedule By Root ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/schedule/findByRoute/124",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"schedule",
+						"findByRoute",
+						"124"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
