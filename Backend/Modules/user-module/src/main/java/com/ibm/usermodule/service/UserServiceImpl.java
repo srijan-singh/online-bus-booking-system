@@ -13,7 +13,11 @@ import org.springframework.web.client.RestTemplate;
 
 
 import com.ibm.usermodule.entity.User;
+
+import java.util.List;
+
 import com.ibm.usermodule.repo.UserRepository;
+
 import com.ibm.usermodule.vo.BookingTemplate;
 import com.ibm.usermodule.vo.BookingValueObject;
 import com.ibm.usermodule.vo.CancellationTemplate;
@@ -77,7 +81,7 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * Method to update a user
+     * Method to return a user
      * @param user
      * @return
      */
@@ -87,7 +91,16 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * Method to delete a user
+     * Method to get all users
+     * @return List<User>
+     */
+    @Override
+    public List<User> getAllUsers(){
+        return userRepository.findAll();
+    }
+
+    /**
+     * Method to update a user
      * @param userID
      * @return
      */
@@ -105,7 +118,7 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * Method to get a user by ID
+     * Method to delete a user by ID
      * @param userID
      * @return
      */
