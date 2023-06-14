@@ -4,7 +4,7 @@ Group: Java Zedi
 
 ## Entities and Relationships
 
-![ER-Diagram](https://user-images.githubusercontent.com/65380027/240302798-4bea6bc3-bafa-4894-9131-8c55e824f544.png)
+![ER-Diagram](https://github.com/srijan-singh/online-bus-booking-system/blob/main/res/ER.jpeg)
 
 ## Entity Tables
 
