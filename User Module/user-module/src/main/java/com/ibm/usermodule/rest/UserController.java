@@ -96,7 +96,7 @@ public class UserController {
      * @param userID
      * @return
      */
-    @PostMapping(value="/bookRide/{userID}", consumes="application/json", produces="application/json")
+    @PostMapping(value="/user/bookRide/{userID}", consumes="application/json", produces="application/json")
     public BookingTemplate bookBusRide(@RequestBody BookingValueObject booking, @PathVariable int userID) {
         return userService.bookBusRide(booking, userID);
     }
@@ -107,7 +107,7 @@ public class UserController {
      * @param bookingID
      * @return
      */
-    @PostMapping(value="/cancelRide/{bookingID}", consumes="application/json", produces="application/json")
+    @PostMapping(value="/user/cancelRide/{bookingID}", consumes="application/json", produces="application/json")
     public CancellationTemplate cancelBusRide(@RequestBody CancellationValueObject cancellation, @PathVariable int bookingID) {
         return userService.cancelBusRide(cancellation, bookingID);
     }
@@ -118,7 +118,7 @@ public class UserController {
      * @param bookingID
      * @return
      */
-    @PostMapping(value = "/reviewRide/{bookingID}" ,consumes = "application/json" ,produces = "application/json")
+    @PostMapping(value = "/user/reviewRide/{bookingID}" ,consumes = "application/json" ,produces = "application/json")
     public ReviewTemplate reviewRide(@RequestBody ReviewValueObject review, @PathVariable int bookingID) {
         return userService.reviewBusRide(review, bookingID);
     }
