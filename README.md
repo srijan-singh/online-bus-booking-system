@@ -41,8 +41,6 @@ Group: Java Zedi
 ### BusSchedule
 - id: integer, primary key
 - bus_route_id: integer, foreign key to BusRoute.id
-- operator_name: varchar
-- operator_email: varchar
 - departure_time: timestamp
 - arrival_time: timestamp
 - price: float
