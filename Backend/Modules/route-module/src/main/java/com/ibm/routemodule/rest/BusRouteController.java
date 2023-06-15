@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,6 +30,11 @@ public class BusRouteController {
     public BusRoute getBusRoute(@PathVariable int id) {
         return busRouteService.getBusRoute(id);
     }
+    
+    @GetMapping(value="/route/origin/all", produces="application/json")
+    public List<String> getAllOrigin() {
+        return busRouteService.getAllOrigin();
+    }
 
     @GetMapping(value="/route/origin/{origin_city}", produces="application/json")
     public List<BusRoute> getBusRoutesByOrigin(@PathVariable String origin_city) {
@@ -38,6 +44,11 @@ public class BusRouteController {
     @GetMapping(value="/route/all", produces="application/json")
     public List<BusRoute> getBusRoutes() {
         return busRouteService.getBusRoutes();
+    }
+    
+    @DeleteMapping(value="/route/remove/{id}", produces="application/json")
+    public boolean removeRoute(@PathVariable int id) {
+    	return busRouteService.removebusRoute(id);
     }
 }
 

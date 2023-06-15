@@ -41,5 +41,22 @@ public class BusScheduleServiceImpl implements BusScheduleService {
                 .orElseThrow(() -> new EntityNotFoundException("Bus Schedule not found with id: " + id));
     }
 
+	@Override
+	public boolean removeSchedule(Long id) {
+		BusSchedule busSchedule = busScheduleRepository.findById(id).orElse(null);
+		
+		if(busSchedule != null) {
+			busScheduleRepository.delete(busSchedule);
+			return true;
+		}
+		
+		return false;
+	}
+
+	@Override
+	public List<BusSchedule> findAllSchedule() {
+		return busScheduleRepository.findAll();
+	}
+
 
 }

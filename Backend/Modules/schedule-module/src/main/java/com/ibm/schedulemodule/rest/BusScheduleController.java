@@ -1,4 +1,4 @@
-package com.ibm.schedulemodule.controller;
+package com.ibm.schedulemodule.rest;
 import java.util.List;
 
 import com.ibm.schedulemodule.entity.BusSchedule;
@@ -28,6 +28,13 @@ public class BusScheduleController {
         List<BusSchedule> busSchedules = busScheduleService.findBusScheduleByRouteId(routeId);
         return ResponseEntity.ok(busSchedules);
     }
+    
+    @GetMapping(value="/all", produces = "application/json")
+    public ResponseEntity<List<BusSchedule>> findAll() {
+        List<BusSchedule> busSchedules = busScheduleService.findAllSchedule();
+        return ResponseEntity.ok(busSchedules);
+    }
+    
 
     @PutMapping(value="/{id}", consumes = "application/json")
     public ResponseEntity<BusSchedule> updateBusSchedule(@PathVariable Long id, @RequestBody BusSchedule busSchedule) {
@@ -48,6 +55,11 @@ public class BusScheduleController {
         return ResponseEntity.ok(busSchedule);
     }
 
+    
+    @DeleteMapping(value="/remove/{id}", produces="application/json")
+    public boolean removeSchedule(@PathVariable long id) {
+    	return busScheduleService.removeSchedule(id);
+    }
 
 }
 

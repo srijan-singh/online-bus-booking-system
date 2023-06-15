@@ -1,5 +1,7 @@
 package com.ibm.rest;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,4 +32,11 @@ public class PaymentController {
 	public Payment get(@PathVariable int id) {
 		return service.findPaymemtByBookingId(id);
 	}
+	
+	@GetMapping(value="/all", produces = "application/json")
+	public List<Payment> getAll() {
+		return service.findAllPayments();
+	}
+	
+	
 }

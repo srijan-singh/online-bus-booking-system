@@ -8,6 +8,9 @@
 package com.ibm.usermodule.service;
 
 import com.ibm.usermodule.entity.User;
+
+import java.util.List;
+
 import com.ibm.usermodule.vo.BookingTemplate;
 import com.ibm.usermodule.vo.BookingValueObject;
 import com.ibm.usermodule.vo.CancellationTemplate;
@@ -47,6 +50,12 @@ public interface UserService {
      * @return User
      */
     User getUser(int userID);
+
+    /**
+     * Method to get all users
+     * @return List<User>
+     */
+    List<User> getAllUsers();
 
     /**
      * Method to delete a user
