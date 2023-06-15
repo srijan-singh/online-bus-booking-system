@@ -1,5 +1,7 @@
 package com.ibm.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,11 @@ public class PaymentServiceImpl implements PaymentService{
 	@Override
 	public Payment findPaymemtByBookingId(int bookingId) {
 		return repo.findByBookingId(bookingId);
+	}
+
+	@Override
+	public List<Payment> findAllPayments() {
+		return repo.findAll();
 	}
 
 
