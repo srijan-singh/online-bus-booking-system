@@ -7,6 +7,8 @@
  */
 package com.ibm.usermodule.rest;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ibm.usermodule.entity.User;
 import com.ibm.usermodule.service.UserService;
+
 import com.ibm.usermodule.vo.BookingTemplate;
 import com.ibm.usermodule.vo.BookingValueObject;
 import com.ibm.usermodule.vo.CancellationTemplate;
@@ -68,6 +71,15 @@ public class UserController {
     @GetMapping(value="/user/get/{userID}", produces="application/json")
     public User getUserByID(@PathVariable int userID) {
         return userService.getUser(userID);
+    }
+    
+    /**
+     * Method to get all user
+     * @return List<User>
+     */
+    @GetMapping(value="/user/getAll", produces="application/json")
+    public List<User> getAllUser() {
+        return userService.getAllUsers();
     }
 
     /**
