@@ -34,5 +34,23 @@ public class BusRouteImpl implements BusRouteService {
     public List<BusRoute> getBusRoutes() {
         return busRouteRepo.findAll();
     }
+
+	@Override
+	public List<String> getAllOrigin() {
+		return busRouteRepo.findAllOrigin();
+	}
+
+	@Override
+	public boolean removebusRoute(int id) {
+		
+		BusRoute busRoute = busRouteRepo.findById(id).orElse(null);
+		
+		if(busRoute != null) {
+			busRouteRepo.delete(busRoute);
+			return true;
+		}
+		
+		return false;
+	}
     
 }

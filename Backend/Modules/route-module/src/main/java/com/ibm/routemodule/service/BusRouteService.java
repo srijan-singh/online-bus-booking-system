@@ -10,9 +10,12 @@ public interface BusRouteService {
 
     BusRoute getBusRoute(int id);
 
+    List<String> getAllOrigin();
+    
     List<BusRoute> getBusRoutesByOrigin(String origin);
 
     List<BusRoute> getBusRoutes();
 
+    boolean removebusRoute(int id);
 }
 
