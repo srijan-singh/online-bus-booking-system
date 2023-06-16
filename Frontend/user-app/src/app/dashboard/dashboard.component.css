@@ -42,3 +42,34 @@ a.cancel:hover {
     cursor: not-allowed;
   }
   
+/********** Overlay **********/
+
+.gradient-header {
+  background-image: linear-gradient(to bottom, #343a40, #35474e, #343a40, #292e34);
+  color: white;
+}
+
+
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%); /* Center the overlay horizontally */
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 2;
+  cursor: pointer;
+}
+
+  
+  #text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: black;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+  }
