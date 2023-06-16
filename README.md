@@ -2,11 +2,7 @@
 
 Group: Java Jedi
 
-<img src ="https://img.shields.io/github/repo-size/srijan-singh/online-bus-booking-system?color=succeess&label=Size"> 
-
-<img src="https://img.shields.io/github/directory-file-count/srijan-singh/online-bus-booking-system/Backend/Modules?color=yellow&label=%20Backend%20Modules"> 
-
-<img src="https://img.shields.io/github/directory-file-count/srijan-singh/online-bus-booking-system/Frontend?color=orange&label=%20Frontend%20Modules"> 
+<img src ="https://img.shields.io/github/repo-size/srijan-singh/online-bus-booking-system?color=succeess&label=Size"> <img src="https://img.shields.io/github/directory-file-count/srijan-singh/online-bus-booking-system/Backend/Modules?color=yellow&label=%20Backend%20Modules"> <img src="https://img.shields.io/github/directory-file-count/srijan-singh/online-bus-booking-system/Frontend?color=orange&label=%20Frontend%20Modules"> 
 
 
 # Frontend
