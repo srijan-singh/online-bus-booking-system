@@ -12,7 +12,7 @@ export class API{
 
 }
 
-export class UserAPI extends API{
+   export class UserAPI extends API{
     constructor(){
         super();
     }
@@ -42,7 +42,8 @@ export class UserAPI extends API{
     }
   }
 
-export class BookingAPI extends API {
+
+  export class BookingAPI extends API {
 
     constructor() {
       super();
@@ -66,7 +67,7 @@ export class BookingAPI extends API {
     
   }
 
-export class RouteAPI extends API{
+  export class RouteAPI extends API{
 
     constructor(){
         super();
@@ -101,6 +102,10 @@ export class ScheduleAPI extends API{
     
     public makeSchedule(){
         return this.scheduleAPI;
+    }
+
+    public getScheduleByID(scheduleID : number){
+        return this.scheduleAPI+scheduleID;
     }
 
     public getScheduleByRouteID(routeID : number){
