@@ -22,18 +22,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ibm.usermodule.entity.User;
 import com.ibm.usermodule.service.UserService;
 
-import com.ibm.usermodule.vo.BookingTemplate;
-import com.ibm.usermodule.vo.BookingValueObject;
-import com.ibm.usermodule.vo.CancellationTemplate;
-import com.ibm.usermodule.vo.CancellationValueObject;
-import com.ibm.usermodule.vo.ReviewTemplate;
-import com.ibm.usermodule.vo.ReviewValueObject;
-
 /**
  * Rest Controller for User Module
  * CrossOrigin annotation is used to allow cross origin requests
  */
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class UserController {
     
@@ -59,7 +52,7 @@ public class UserController {
      * @return userID
      */
     @PostMapping(value="/user/login", consumes="application/json")
-    public int loginUser(@RequestBody User user){
+    public User loginUser(@RequestBody User user){
         return userService.login(user.getEmail(), user.getPassword());
     }
     
@@ -77,7 +70,7 @@ public class UserController {
      * Method to get all user
      * @return List<User>
      */
-    @GetMapping(value="/user/getAll", produces="application/json")
+    @GetMapping(value="/user/listAll", produces="application/json")
     public List<User> getAllUser() {
         return userService.getAllUsers();
     }
@@ -100,40 +93,5 @@ public class UserController {
     @DeleteMapping(value="/user/delete/{userID}")
     public boolean deleteUser(@PathVariable int userID) {
         return userService.delete(userID);
-    }
-
-    /**
-     * Method to book a bus ride
-     * @param booking
-     * @param userID
-     * @return
-     */
-    @PostMapping(value="/user/bookRide/{userID}", consumes="application/json", produces="application/json")
-    public BookingTemplate bookBusRide(@RequestBody BookingValueObject booking, @PathVariable int userID) {
-        return userService.bookBusRide(booking, userID);
-    }
-
-    /**
-     * Method to cancel a bus ride
-     * @param cancellation
-     * @param bookingID
-     * @return
-     */
-    @PostMapping(value="/user/cancelRide/{bookingID}", consumes="application/json", produces="application/json")
-    public CancellationTemplate cancelBusRide(@RequestBody CancellationValueObject cancellation, @PathVariable int bookingID) {
-        return userService.cancelBusRide(cancellation, bookingID);
-    }
-
-    /**
-     * Method to review a bus ride
-     * @param review
-     * @param bookingID
-     * @return
-     */
-    @PostMapping(value = "/user/reviewRide/{bookingID}" ,consumes = "application/json" ,produces = "application/json")
-    public ReviewTemplate reviewRide(@RequestBody ReviewValueObject review, @PathVariable int bookingID) {
-        return userService.reviewBusRide(review, bookingID);
-    }
-
-    
+    }    
 }

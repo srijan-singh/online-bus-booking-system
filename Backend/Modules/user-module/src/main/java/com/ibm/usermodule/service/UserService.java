@@ -11,12 +11,14 @@ import com.ibm.usermodule.entity.User;
 
 import java.util.List;
 
+/*
 import com.ibm.usermodule.vo.BookingTemplate;
 import com.ibm.usermodule.vo.BookingValueObject;
 import com.ibm.usermodule.vo.CancellationTemplate;
 import com.ibm.usermodule.vo.CancellationValueObject;
 import com.ibm.usermodule.vo.ReviewTemplate;
 import com.ibm.usermodule.vo.ReviewValueObject;
+*/
 
 /**
  * Interface for User Service
@@ -35,7 +37,7 @@ public interface UserService {
      * @param password
      * @return userID
      */
-    int login(String email, String password);
+    User login(String email, String password);
 
     /**
      * Method to update a user
@@ -72,7 +74,7 @@ public interface UserService {
      * @param userID
      * @return
      */
-    BookingTemplate bookBusRide(BookingValueObject booking ,int userID);
+    //BookingTemplate bookBusRide(BookingValueObject booking ,int userID);
 
     /**
      * Method to cancel a bus ride
@@ -80,7 +82,7 @@ public interface UserService {
      * @param bookingID
      * @return
      */
-    CancellationTemplate cancelBusRide(CancellationValueObject cancellation, int bookingID);
+    //CancellationTemplate cancelBusRide(CancellationValueObject cancellation, int bookingID);
 
     /**
      * Method to review a bus ride
@@ -88,5 +90,5 @@ public interface UserService {
      * @param userID
      * @return
      */
-    ReviewTemplate reviewBusRide(ReviewValueObject review, int userID);
+    //ReviewTemplate reviewBusRide(ReviewValueObject review, int userID);
 }

@@ -9,8 +9,6 @@ package com.ibm.usermodule.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.client.RestTemplate;
-
 
 import com.ibm.usermodule.entity.User;
 
@@ -18,37 +16,11 @@ import java.util.List;
 
 import com.ibm.usermodule.repo.UserRepository;
 
-import com.ibm.usermodule.vo.BookingTemplate;
-import com.ibm.usermodule.vo.BookingValueObject;
-import com.ibm.usermodule.vo.CancellationTemplate;
-import com.ibm.usermodule.vo.CancellationValueObject;
-import com.ibm.usermodule.vo.ReviewTemplate;
-import com.ibm.usermodule.vo.ReviewValueObject;
-
 /**
  * Implementation for User Service
  */
 @Repository
-public class UserServiceImpl implements UserService {
-
-    /**
-     * URL for booking module
-     */
-    private static final String BOOKING_MODULE_URL = "http://localhost:9002/booking/";
-    /**
-     * URL for cancellation module
-     */
-    private static final String CANCELLATION_MODULE_URL = "http://localhost:9002/booking/cancel/";
-    /**
-     * URL for review module
-     */
-    private static final String REVIEW_MODULE_URL = "http://localhost:9002/booking/review/";
-
-    /**
-     * Autowired RestTemplate
-     */
-    @Autowired
-    private RestTemplate restTemplate;
+public class UserServiceImpl implements UserService {   
 
     /**
      * Autowired UserRepository
@@ -73,11 +45,11 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     @Override
-    public int login(String email, String password) {
+    public User login(String email, String password) {
         if (userRepository.findByEmailAndPassword(email, password) != null) {
-            return userRepository.findByEmail(email).getId();
+            return userRepository.findByEmail(email);
         }
-        return -1;
+        return new User();
     }
 
     /**
@@ -131,125 +103,4 @@ public class UserServiceImpl implements UserService {
         }
         return false;
     }
-
-    /**
-     * Method to book a bus ride
-     * @param booking
-     * @param userID
-     * @return
-     */
-    @Override
-    public BookingTemplate bookBusRide(BookingValueObject booking, int userID) {
-        /**
-         * Template for booking
-         */
-        BookingTemplate bookingTemplate = new BookingTemplate();
-        
-        /**
-         * User object to be fetched from database
-         */
-        User user = userRepository.findById(userID).orElse(null);
-
-        /**
-         * If user is not null, then proceed to book the bus ride
-         */
-        if (user != null) {
-            /**
-             * Booking ID returned from booking module
-             */
-            Integer bookingID = restTemplate.postForObject(BOOKING_MODULE_URL, booking, Integer.class);
-            /**
-             * Booking object returned from booking module
-             */
-            BookingValueObject bookingValueObject = restTemplate.getForObject(BOOKING_MODULE_URL + "get/" + bookingID, BookingValueObject.class);
-            /**
-             * Set the booking and user in the template
-             */
-            bookingTemplate.setBooking(bookingValueObject);
-            bookingTemplate.setUser(user);
-        }
-
-        return bookingTemplate;
-    }
-
-    /**
-     * Method to cancel a bus ride
-     * @param cancellation
-     * @param bookingID
-     * @return
-     */
-    @Override
-    public CancellationTemplate cancelBusRide(CancellationValueObject cancellation, int bookingID) {
-        /**
-         * Template for cancellation
-         */
-        CancellationTemplate cancellationTemplate = new CancellationTemplate();
-
-        /**
-         * Booking object to be fetched from database
-         */
-        BookingValueObject bookingValueObject = restTemplate.getForObject(BOOKING_MODULE_URL + "get/" + bookingID, BookingValueObject.class);
-
-        /**
-         * If booking is not null, then proceed to cancel the bus ride
-         */
-        if (bookingValueObject != null) {
-            /**
-             * Cancellation ID returned from cancellation module
-             */
-            Integer cancellationID = restTemplate.postForObject(CANCELLATION_MODULE_URL + bookingID, cancellation, Integer.class);
-            /**
-             * Cancellation object returned from cancellation module
-             */
-            CancellationValueObject cancellationValueObject = restTemplate.getForObject(CANCELLATION_MODULE_URL + "get/" + cancellationID, CancellationValueObject.class);
-            /**
-             * Set the cancellation and booking in the template
-             */
-            cancellationTemplate.setCancellation(cancellationValueObject);
-            cancellationTemplate.setBooking(bookingValueObject);
-        }
-
-        return cancellationTemplate;
-    }
-
-    /**
-     * Method to review a bus ride
-     * @param review
-     * @param bookingID
-     * @return
-     */
-    @Override
-    public ReviewTemplate reviewBusRide(ReviewValueObject review, int bookingID) {
-        /**
-         * Template for review
-         */
-        ReviewTemplate reviewTemplate = new ReviewTemplate();
-
-        /**
-         * Booking object to be fetched from database
-         */
-        BookingValueObject bookingValueObject = restTemplate.getForObject(BOOKING_MODULE_URL + "get/" + bookingID, BookingValueObject.class);
-
-        /**
-         * If booking is not null, then proceed to review the bus ride
-         */
-        if (bookingValueObject != null) {
-            /**
-             * Review ID returned from review module
-             */
-            Integer reviewID = restTemplate.postForObject(REVIEW_MODULE_URL + bookingID, review, Integer.class);
-            /**
-             * Review object returned from review module
-             */
-            review = restTemplate.getForObject(REVIEW_MODULE_URL + "get/" + reviewID, ReviewValueObject.class);
-            /**
-             * Set the review and booking in the template
-             */
-            reviewTemplate.setReview(review);
-            reviewTemplate.setBooking(bookingValueObject);
-        }
-
-        return reviewTemplate;
-    }
-    
 }

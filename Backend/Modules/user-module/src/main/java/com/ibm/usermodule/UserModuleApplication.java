@@ -2,8 +2,10 @@ package com.ibm.usermodule;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.client.RestTemplate;
+
+/*import org.springframework.context.annotation.Bean;
+
+import org.springframework.web.client.RestTemplate*/
 
 @SpringBootApplication
 public class UserModuleApplication {
@@ -12,9 +14,9 @@ public class UserModuleApplication {
 		SpringApplication.run(UserModuleApplication.class, args);
 	}
 
-	@Bean
+	/*@Bean
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
-	}
+	}*/
 
 }
