@@ -2,6 +2,22 @@
 
 Group: Java Jedi
 
+## Frontend
+
+### User App
+
+1. Sign UP
+
+    ![Register](https://github.com/srijan-singh/online-bus-booking-system/blob/main/res/localhost_4200_register.png)
+
+2. Sign In
+
+    ![Login](https://github.com/srijan-singh/online-bus-booking-system/blob/main/res/localhost_4200_login.png)
+
+3. Dashboard
+
+    ![Dashboard](https://github.com/srijan-singh/online-bus-booking-system/blob/main/res/localhost_4200_dashboard.png)
+
 ## Entities and Relationships
 
 ![ER-Diagram](https://github.com/srijan-singh/online-bus-booking-system/blob/main/res/ER.jpeg)
