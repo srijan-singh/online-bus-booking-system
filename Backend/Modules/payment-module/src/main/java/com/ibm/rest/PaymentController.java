@@ -30,7 +30,7 @@ public class PaymentController {
 	
 	@GetMapping(value="/{id}", produces = "application/json")
 	public Payment get(@PathVariable int id) {
-		return service.findPaymemtByBookingId(id);
+		return service.findPaymemtByBookingID(id);
 	}
 	
 	@GetMapping(value="/all", produces = "application/json")
