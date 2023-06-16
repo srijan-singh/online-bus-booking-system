@@ -8,7 +8,7 @@ public interface PaymentService {
 
 	int save(Payment p);
 	
-	Payment findPaymemtByBookingId(int bookingId);
+	Payment findPaymemtByBookingID(int bookingId);
 	
 	List<Payment> findAllPayments();
 }

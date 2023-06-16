@@ -26,8 +26,13 @@ public class BusScheduleServiceImpl implements BusScheduleService {
     }
 
     @Override
-    public List<BusSchedule> findBusScheduleByRouteId(Long routeId) {
-        return busScheduleRepository.findByRouteId(routeId);
+    public List<BusSchedule> findBusScheduleByRouteID(Long routeId) {
+        return busScheduleRepository.findByRouteID(routeId);
+    }
+    
+    @Override
+    public List<BusSchedule> findBusScheduleByBookingID(Long bookingId) {
+        return busScheduleRepository.findByBookingID(bookingId);
     }
 
     @Override
@@ -36,7 +41,7 @@ public class BusScheduleServiceImpl implements BusScheduleService {
     }
 
     @Override
-    public BusSchedule getBusScheduleById(Long id) {
+    public BusSchedule getBusScheduleByID(Long id) {
         return busScheduleRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Bus Schedule not found with id: " + id));
     }

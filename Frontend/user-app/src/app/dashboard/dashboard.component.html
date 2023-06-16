@@ -1,1 +1,50 @@
-<p>dashboard works!</p>
+<div class="container">
+
+  <nav class="navbar navbar-expand-sm bg-primary">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link text-white"><b>User ID:</b> {{userId}}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/booking">Booking</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white btn btn-link" (click)="getBookings(userId)">Refresh</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav float-right">
+      <li class="nav-item">
+        <a class="nav-link text-white btn btn-link" (click)="logout()">Log Out</a>
+      </li>
+    </ul>
+  </nav>
+  
+
+  <div class="card mx-auto">
+    <div class="card-body">
+      <table class="table table-bordered text-center">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Seat Number</th>
+            <th>Status</th>
+            <th>Schedule ID</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let booking of bookings">
+            <td>{{booking.id}}</td>
+            <td>{{booking.seatNumber}}</td>
+            <td>{{booking.status}}</td>
+            <td>{{booking.scheduleID}}</td>
+            <td>
+              <a (click)="review(booking.id, booking.userID)" class="review btn btn-link" [ngClass]="{ 'disabled-link': booking.status === 'Reviewed' }">Review</a>
+              <a (click)="cancel(booking.id, booking.userID)" class="cancel btn btn-link" [ngClass]="{ 'disabled-link': booking.status === 'Cancelled' }">Cancel</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

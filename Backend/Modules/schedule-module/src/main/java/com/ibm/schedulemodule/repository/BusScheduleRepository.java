@@ -6,6 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface BusScheduleRepository extends JpaRepository<BusSchedule,Long> {
-    List<BusSchedule> findByRouteId(Long routeId);
+	
+    List<BusSchedule> findByRouteID(Long routeId);
+    
+    List<BusSchedule> findByBookingID(Long bookingId);
 
 }

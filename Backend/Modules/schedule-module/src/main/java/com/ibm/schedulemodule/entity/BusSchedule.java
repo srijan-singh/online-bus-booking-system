@@ -22,25 +22,31 @@ public class BusSchedule {
     private int availableSeats;
 
     @Column(name = "route_id")
-    private Long routeId;
+    private Long routeID;
 
     @Column(name = "booking_id")
-    private Long bookingId;
+    private Long bookingID;
+    
+    @Column(name = "amount")
+    private Double amount;
 
-    public BusSchedule() {
+	public BusSchedule() {
     }
 
-    public BusSchedule(LocalDateTime departureTime, LocalDateTime arrivalTime, int availableSeats, Long routeId, Long bookingId) {
-        this.departureTime = departureTime;
-        this.arrivalTime = arrivalTime;
-        this.availableSeats = availableSeats;
-        this.routeId = routeId;
-        this.bookingId = bookingId;
-    }
+    public BusSchedule(Long id, LocalDateTime departureTime, LocalDateTime arrivalTime, int availableSeats,
+			Long routeID, Long bookingID, Double amount) {
+		super();
+		this.id = id;
+		this.departureTime = departureTime;
+		this.arrivalTime = arrivalTime;
+		this.availableSeats = availableSeats;
+		this.routeID = routeID;
+		this.bookingID = bookingID;
+		this.amount = amount;
+	}
 
 
-
-    public Long getId() {
+	public Long getId() {
         return id;
     }
 
@@ -72,21 +78,29 @@ public class BusSchedule {
         this.availableSeats = availableSeats;
     }
 
-    public Long getRouteId() {
-        return routeId;
+    public Long getRouteID() {
+        return routeID;
     }
 
-    public void setRouteId(Long routeId) {
-        this.routeId = routeId;
+    public void setRouteID(Long routeId) {
+        this.routeID = routeId;
     }
 
-    public Long getBookingId() {
-        return bookingId;
+    public Long getBookingID() {
+        return bookingID;
     }
 
-    public void setBookingId(Long bookingId) {
-        this.bookingId = bookingId;
+    public void setBookingID(Long bookingId) {
+        this.bookingID = bookingId;
     }
+    
+    public Double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(Double amount) {
+		this.amount = amount;
+	}
 
 
 }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+//import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,7 +23,7 @@ import com.ibm.bookingmodule.entity.Cancellation;
 import com.ibm.bookingmodule.entity.Review;
 import com.ibm.bookingmodule.service.BookingService;
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class BookingController {
     
@@ -56,7 +57,7 @@ public class BookingController {
      * @return cancellationID
      */
     @PostMapping(value="/booking/cancel/{bookingID}", consumes="application/json")
-    public int cancelBusRide(@RequestBody Cancellation cancellation, @PathVariable int bookingID) {
+    public Booking cancelBusRide(@RequestBody Cancellation cancellation, @PathVariable int bookingID) {
         return bookingService.cancelBooking(cancellation, bookingID);
     }
 
@@ -77,7 +78,7 @@ public class BookingController {
      * @return reviewID
      */
     @PostMapping(value="/booking/review/{bookingID}", consumes="application/json")
-    public int reviewBusRide(@RequestBody Review review, @PathVariable int bookingID) {
+    public Booking reviewBusRide(@RequestBody Review review, @PathVariable int bookingID) {
         return bookingService.reviewBooking(review, bookingID);
     }
 

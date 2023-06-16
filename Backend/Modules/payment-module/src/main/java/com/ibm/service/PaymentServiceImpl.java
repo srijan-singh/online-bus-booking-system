@@ -16,12 +16,12 @@ public class PaymentServiceImpl implements PaymentService{
 	@Override
 	public int save(Payment p) {
 		repo.save(p);
-		return p.getId();
+		return p.getID();
 	}
 	
 	@Override
-	public Payment findPaymemtByBookingId(int bookingId) {
-		return repo.findByBookingId(bookingId);
+	public Payment findPaymemtByBookingID(int bookingId) {
+		return repo.findByBookingID(bookingId);
 	}
 
 	@Override

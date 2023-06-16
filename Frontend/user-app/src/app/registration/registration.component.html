@@ -1,40 +1,33 @@
 <div class="card">
-    <div class="row justify-content-center">
-        <h2 class="text-center">Registrtion</h2>
-        <div class="col-lg-8">
-            <form (ngSubmit)="register()">
-                <table class="table">
-                    <tr>
-                        <th>
-                            Name
-                        </th>
-                        <td>
-                            <input type="text" id="name" name="name" [(ngModel)]="name" required class="form-control" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="email">Email</label>
-                        </td>
-                        <td>
-                            <input type="text" id="username" name="username" [(ngModel)]="email" required class="form-control" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="password">Password</label>
-                        </td>
-                        <td>
-                            <input type="password" id="password" name="password" [(ngModel)]="password" required class="form-control" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <button type="submit" class="btn btn-outline-dark">Register</button>
-                        </td>
-                    </tr>
-                </table>                
-            </form>
+    <div class="card-body">
+      <h2 class="card-title text-center">Create Account</h2>
+    
+      <form (ngSubmit)="register()">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" [(ngModel)]="user.name" required class="form-control">
         </div>
+    
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" [(ngModel)]="user.email" required class="form-control">
+        </div>
+    
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" [(ngModel)]="user.password" required class="form-control">
+        </div>
+
+        <br>
+
+        <button type="submit" class="btn btn-primary">Register</button>
+
+        <br>
+      </form>
+    
+      <div class="text-center">
+        <a [routerLink]="['/login']">Already have an account?</a>
+      </div>
     </div>
-</div>
+  </div>
+  

@@ -10,19 +10,20 @@ public class Payment {
 	@Id
 	@GeneratedValue
 	private int id;
-	private int bookingId;  //Foreign key booking id
+	private int bookingID;  //Foreign key booking id
 	private double amount;
-	public int getId() {
+	
+	public int getID() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getBookingId() {
-		return bookingId;
+	public int getBookingID() {
+		return bookingID;
 	}
-	public void setBookingId(int bookingId) {
-		this.bookingId = bookingId;
+	public void setBookingID(int bookingId) {
+		this.bookingID = bookingId;
 	}
 	public double getAmount() {
 		return amount;
