@@ -1,0 +1,22 @@
+*{
+    font-family: Helvetica;
+}
+  
+  a{
+    text-decoration: none;
+}
+
+.card {
+  margin-top: 50px;
+  max-width: 450px;
+  max-height: 700px;
+  margin: 0 auto;
+}
+.card button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+ 

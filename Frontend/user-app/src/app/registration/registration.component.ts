@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../model/User';
+import { Router } from '@angular/router';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-registration',
@@ -7,20 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationComponent implements OnInit {
   
-  name: string = "";
-  email: string = "";
-  password: string = "";
+  user : User = new User();
 
-  constructor() { }
+  constructor(private service : UserService, private route: Router) { }
 
   ngOnInit(): void {
       
   }
 
-  register(){
-    alert("register"
-    + "\nname: " + this.name
-    + "\nemail: " + this.email
-    + "\npassword: " + this.password)
+  async register(){
+
+    try {
+      const data = await this.service.registerUser(this.user);
+      console.log(data);
+
+      if(data != null){
+
+      }
+    }
+    catch (error) {
+      console.log('Error occurred during login:', error);
+    }
+
+    this.route.navigate(['/login']);
+
   }
 }

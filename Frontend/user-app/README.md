@@ -1,5 +1,22 @@
 # UserApp
 
+## Pages
+
+    - Registration
+    - Login
+
+    - Dashboard
+        - booking details
+        - cancel booking
+        - review booking
+        - payment details
+
+    - Book
+        - booking-module
+        - route-module
+        - schedule-module
+        - payment-module
+
 ## Commands
 
     ### Create

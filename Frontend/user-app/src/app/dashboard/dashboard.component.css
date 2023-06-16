@@ -1,0 +1,37 @@
+*{
+    font-family: Helvetica;
+}
+
+.review{
+    color: yellowgreen;
+}
+
+.cancel{
+    color: red;
+}
+
+.navbar {
+    border-radius: 5px;
+  }
+
+.card {
+    margin-top: 50px;
+    width: 800px;
+}
+
+a{
+    text-decoration: none;
+}
+
+a.review:hover,
+a.cancel:hover {
+  color: blueviolet;
+}
+
+.disabled-link {
+    pointer-events: none;
+    color: #ccc;
+    text-decoration: none;
+    cursor: not-allowed;
+  }
+  

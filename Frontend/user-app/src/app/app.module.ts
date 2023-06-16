@@ -7,10 +7,9 @@ import { RegistrationComponent } from './registration/registration.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { BookRideComponent } from './book-ride/book-ride.component';
-import { CancelRideComponent } from './cancel-ride/cancel-ride.component';
-import { ReviewRideComponent } from './review-ride/review-ride.component';
 import { FormsModule } from '@angular/forms';
+import { BookingComponent } from './booking/booking.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -18,9 +17,8 @@ import { FormsModule } from '@angular/forms';
     RegistrationComponent,
     LoginComponent,
     DashboardComponent,
-    BookRideComponent,
-    CancelRideComponent,
-    ReviewRideComponent
+    BookingComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +27,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
   ],
   providers: [],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
