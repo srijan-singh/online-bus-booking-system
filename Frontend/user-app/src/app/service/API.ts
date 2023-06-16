@@ -1,10 +1,14 @@
 export class API{
-    
-    private baseURL = "http://localhost:9000/";
  
-    public getBaseURL(){
-        return this.baseURL;
-    }
+    protected userAPI = "http://localhost:9001/" + "user/";
+
+    protected bookingAPI =  "http://localhost:9002/" + "booking/";
+
+    protected routeAPI =  "http://localhost:9003/" + "route/";
+
+    protected scheduleAPI =  "http://localhost:9004/" + "schedule/";
+
+    protected paymentAPI =  "http://localhost:9005/" + "payment/";
 
 }
 
@@ -12,8 +16,6 @@ export class UserAPI extends API{
     constructor(){
         super();
     }
-  
-    private userAPI = "http://localhost:9001/" + "user/";
   
     public registerUser(){
         return this.userAPI+"registeration";
@@ -46,8 +48,6 @@ export class BookingAPI extends API {
       super();
     }
 
-    private bookingAPI =  "http://localhost:9002/" + "booking/";
-
     public getBookingAPI(){
         return this.bookingAPI;
     }
@@ -71,8 +71,6 @@ export class RouteAPI extends API{
     constructor(){
         super();
     }
-
-    private routeAPI = this.getBaseURL() + "route/";
     
     public addRoute(){
         return this.routeAPI+"add";
@@ -100,8 +98,6 @@ export class ScheduleAPI extends API{
     constructor(){
         super();
     }    
-
-    private scheduleAPI = this.getBaseURL() + "schedule/";
     
     public makeSchedule(){
         return this.scheduleAPI;
@@ -121,8 +117,6 @@ export class PaymentAPI extends API{
     constructor(){
         super();
     }
-
-    private paymentAPI = this.getBaseURL() + "payment/";
 
     public makePayment(){
         return this.paymentAPI;
