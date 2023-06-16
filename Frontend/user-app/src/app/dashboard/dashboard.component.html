@@ -12,15 +12,13 @@
       </form>
     </div>
   </nav>
-
-  
       <table class="table table-bordered text-center">
         <thead>
           <tr>
             <th>ID</th>
             <th>Seat Number</th>
             <th>Status</th>
-            <th>Schedule ID</th>
+            <th>Booking Information</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -35,7 +33,14 @@
             }">
               <strong>{{booking.status}}</strong>
             </td>
-            <td>{{booking.scheduleID}}</td>
+            <td>
+              <!-- <div id="overlay" (click)="off()">
+                <div id="text">
+                  <div [innerHTML]="schedule_details"></div>
+                </div>
+              </div> -->
+              <button class="btn btn-dark" (click)="getSchedule(booking.scheduleID)">Get Schedule Details</button> 
+            </td>
             <td>
               <a (click)="review(booking.id, booking.userID)" class="review btn btn-link" [ngClass]="{
                 'disabled-link': booking.status === 'Reviewed' || booking.status === 'Cancelled'
