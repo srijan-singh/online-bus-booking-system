@@ -8,13 +8,15 @@ public interface BusScheduleService {
 	
     Long makeBusSchedule(BusSchedule busSchedule);
     
-    List<BusSchedule> findBusScheduleByRouteId(Long routeId);
+    List<BusSchedule> findBusScheduleByRouteID(Long routeId);
+    
+    List<BusSchedule> findBusScheduleByBookingID(Long bookingId);
     
     List<BusSchedule> findAllSchedule();
     
     BusSchedule updateBusSchedule(BusSchedule busSchedule);
     
-    BusSchedule getBusScheduleById(Long id);
+    BusSchedule getBusScheduleByID(Long id);
     
     boolean removeSchedule(Long id);
 

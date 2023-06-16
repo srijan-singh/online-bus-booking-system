@@ -25,7 +25,13 @@ public class BusScheduleController {
 
     @GetMapping(value="/findByRoute/{routeId}", produces = "application/json")
     public ResponseEntity<List<BusSchedule>> findBusScheduleByRouteId(@PathVariable Long routeId) {
-        List<BusSchedule> busSchedules = busScheduleService.findBusScheduleByRouteId(routeId);
+        List<BusSchedule> busSchedules = busScheduleService.findBusScheduleByRouteID(routeId);
+        return ResponseEntity.ok(busSchedules);
+    }
+    
+    @GetMapping(value="/findByBooking/{bookingId}", produces = "application/json")
+    public ResponseEntity<List<BusSchedule>> findBusScheduleByBookinId(@PathVariable Long bookingId) {
+        List<BusSchedule> busSchedules = busScheduleService.findBusScheduleByBookingID(bookingId);
         return ResponseEntity.ok(busSchedules);
     }
     
@@ -38,12 +44,12 @@ public class BusScheduleController {
 
     @PutMapping(value="/{id}", consumes = "application/json")
     public ResponseEntity<BusSchedule> updateBusSchedule(@PathVariable Long id, @RequestBody BusSchedule busSchedule) {
-        BusSchedule existingBusSchedule = busScheduleService.getBusScheduleById(id);
+        BusSchedule existingBusSchedule = busScheduleService.getBusScheduleByID(id);
         existingBusSchedule.setDepartureTime(busSchedule.getDepartureTime());
         existingBusSchedule.setArrivalTime(busSchedule.getArrivalTime());
         existingBusSchedule.setAvailableSeats(busSchedule.getAvailableSeats());
-        existingBusSchedule.setRouteId(busSchedule.getRouteId());
-        existingBusSchedule.setBookingId(busSchedule.getBookingId());
+        existingBusSchedule.setRouteID(busSchedule.getRouteID());
+        existingBusSchedule.setBookingID(busSchedule.getBookingID());
 
         BusSchedule updatedBusSchedule = busScheduleService.updateBusSchedule(existingBusSchedule);
         return ResponseEntity.ok(updatedBusSchedule);
@@ -51,7 +57,7 @@ public class BusScheduleController {
 
     @GetMapping(value="/{id}", produces = "application/json")
     public ResponseEntity<BusSchedule> getBusScheduleById(@PathVariable Long id) {
-        BusSchedule busSchedule = busScheduleService.getBusScheduleById(id);
+        BusSchedule busSchedule = busScheduleService.getBusScheduleByID(id);
         return ResponseEntity.ok(busSchedule);
     }
 
