@@ -1,6 +1,9 @@
 <div class="card">
+  <div class="card-title-container">
+    <h2 class="card-title text-center">Sign UP</h2>
+  </div>
     <div class="card-body">
-      <h2 class="card-title text-center">Create Account</h2>
+      
     
       <form (ngSubmit)="register()">
         <div class="form-group">
@@ -20,13 +23,13 @@
 
         <br>
 
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="btn btn-dark">Sign Up</button>
 
         <br>
       </form>
     
       <div class="text-center">
-        <a [routerLink]="['/login']">Already have an account?</a>
+        <a [routerLink]="['/login']">Already have an account?<br>Sign In</a>
       </div>
     </div>
   </div>
