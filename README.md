@@ -6,7 +6,7 @@ Group: Java Jedi
 
 ### User App
 
-1. Sign UP
+1. Sign Up
 
     ![Register](https://github.com/srijan-singh/online-bus-booking-system/blob/main/res/localhost_4200_register.png)
 
