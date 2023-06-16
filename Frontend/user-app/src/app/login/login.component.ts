@@ -34,6 +34,8 @@ export class LoginComponent implements OnInit{
 
       localStorage.setItem('userID', String(this.user.id));
 
+      localStorage.setItem('userName', this.user.name);
+
       this.route.navigate(['/dashboard']);
 
     } catch (error) {
