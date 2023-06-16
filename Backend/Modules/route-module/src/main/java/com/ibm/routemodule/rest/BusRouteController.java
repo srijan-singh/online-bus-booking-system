@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ibm.routemodule.entity.BusRoute;
 import com.ibm.routemodule.service.BusRouteService;
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class BusRouteController {
     
