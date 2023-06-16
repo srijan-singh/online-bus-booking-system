@@ -45,7 +45,7 @@ public interface BookingService {
      * @param bookingID
      * @return
      */
-    int cancelBooking(Cancellation cancellation, int bookingID);
+    Booking cancelBooking(Cancellation cancellation, int bookingID);
 
     /**
      * Method to get cancellation details
@@ -60,7 +60,7 @@ public interface BookingService {
      * @param bookingID
      * @return
      */
-    int reviewBooking(Review review, int bookingID);
+    Booking reviewBooking(Review review, int bookingID);
 
     /**
      * Method to get review details

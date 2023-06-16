@@ -78,16 +78,15 @@ public class BookingServiceImpl implements BookingService {
      * @return cancellationID
      */
     @Override
-    public int cancelBooking(Cancellation cancellation, int bookingID) {
+    public Booking cancelBooking(Cancellation cancellation, int bookingID) {
         Booking booking = bookingRepository.findById(bookingID).orElse(null);
         if(booking != null) {
             booking.setStatus("Cancelled");
             bookingRepository.save(booking);
             cancellation.setBooking(booking);
             cancellationRepository.save(cancellation);
-            return cancellation.getId();
         }   
-        return -1;
+        return booking;
     }
 
     /**
@@ -107,15 +106,15 @@ public class BookingServiceImpl implements BookingService {
      * @return reviewID
      */
     @Override
-    public int reviewBooking(Review review, int bookingID) {
+    public Booking reviewBooking(Review review, int bookingID) {
         Booking booking = bookingRepository.findById(bookingID).orElse(null);
         if(booking != null) {
             booking.setStatus("Reviewed");
+            bookingRepository.save(booking);
             review.setUserID(booking.getUserID());
             reviewRepository.save(review);
-            return review.getId();
         }
-        return -1;
+        return booking;
     }
 
     /**
