@@ -1,6 +1,9 @@
 <div class="card mx-auto">
+  <div class="card-title-container">
+    <h2 class="card-title text-center">Sign In</h2>
+  </div>
   <div class="card-body">
-    <h2 class="card-title text-center">Login</h2>
+    
   
     <form (ngSubmit)="login()">
       <div class="form-group">
@@ -15,14 +18,14 @@
   
       <br>
 
-      <button type="submit" class="btn btn-primary">Login</button>
+      <button type="submit" class="btn btn-dark">Sign In</button>
   
       <br>
 
     </form>
     
     <div class="text-center">
-      <a [routerLink]="['/register']">Create Account</a>
+      <a [routerLink]="['/register']">Don't have an account?<br>Sign Up</a>
     </div>
   </div>
 </div>

@@ -15,6 +15,8 @@ export class DashboardComponent implements OnInit{
 
   userId: string = "";
 
+  userName : string = "";
+
   users : User[] = []
   
   bookings : Booking[] = []
@@ -28,8 +30,12 @@ export class DashboardComponent implements OnInit{
   async ngOnInit() {
     var userID = localStorage.getItem('userID');
 
+    var userName = localStorage.getItem('userName');
+
     if(userID !== null){
       this.userId = userID;
+
+      this.userName = userName !== null ? userName : "User";
 
       await this.getBookings(userID);
 
@@ -48,31 +54,33 @@ export class DashboardComponent implements OnInit{
   }
 
   async cancel(bookingID: number, userID: number) {
-
     var reason = prompt("Reason for cancellation", "");
-
-    if(reason != null){
-      await this.service.cancelBooking(bookingID, reason.toString());    
- 
-      await this.getBookings(String(userID));
-    
-      console.log(this.bookings); 
+  
+    if (reason != null) {
+      await this.service.cancelBooking(bookingID, reason.toString());
+  
+      setTimeout(async () => {
+        await this.getBookings(String(userID));
+        console.log(this.bookings);
+      }, 2000);
     }
   }
 
-  async review(bookingID: number, userID : number){
-    
+  async review(bookingID: number, userID: number) {
     var rating = prompt("Please enter your rating (1-5)", "");
-
     var comment = prompt("Please enter your comment", "");
-
-    if(rating != null && comment != null){
-      
-      await this.service.reviewBooking(bookingID, rating.toString(), comment.toString());
-
-      await this.getBookings(String(userID));
-
-      console.log(this.bookings); 
+  
+    if (rating != null && comment != null) {
+      await this.service.reviewBooking(
+        bookingID,
+        rating.toString(),
+        comment.toString()
+      );
+  
+      setTimeout(async () => {
+        await this.getBookings(String(userID));
+        console.log(this.bookings);
+      }, 2000);
     }
   }
 

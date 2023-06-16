@@ -3,7 +3,7 @@
 }
 
 .review{
-    color: yellowgreen;
+    color: green;
 }
 
 .cancel{
@@ -12,12 +12,19 @@
 
 .navbar {
     border-radius: 5px;
+    background-image: linear-gradient(to bottom,  #343a40, #35474e, #343a40, #292e34);
   }
 
-.card {
-    margin-top: 50px;
-    width: 800px;
+table{
+    margin-top: 20px;
+    border-radius: 5px;
 }
+
+th{
+    background-image: linear-gradient(to bottom,  #343a40, #35474e, #343a40, #292e34);
+    color: white;
+}
+
 
 a{
     text-decoration: none;
