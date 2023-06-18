@@ -23,9 +23,8 @@ public class PaymentController {
 	private PaymentService service;
 	
 	@PostMapping(value = "/" ,consumes = "application/json")
-	public String add(@RequestBody Payment p) {
-		int id = service.save(p);
-		return "Payment sucessful with id: "+id;
+	public Payment add(@RequestBody Payment p) {
+		return service.save(p);
 	}
 	
 	@GetMapping(value="/{id}", produces = "application/json")
