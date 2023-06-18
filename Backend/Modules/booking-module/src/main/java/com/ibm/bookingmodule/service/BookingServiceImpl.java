@@ -46,9 +46,8 @@ public class BookingServiceImpl implements BookingService {
      * @return bookingID
      */
     @Override
-    public int makeBooking(Booking booking) {
-        bookingRepository.save(booking);
-        return booking.getId();
+    public Booking makeBooking(Booking booking) {
+        return bookingRepository.save(booking);
     }
 
     /**

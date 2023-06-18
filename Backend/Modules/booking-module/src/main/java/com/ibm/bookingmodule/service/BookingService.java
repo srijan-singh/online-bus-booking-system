@@ -23,7 +23,7 @@ public interface BookingService {
      * @param booking
      * @return
      */
-    int makeBooking(Booking booking);
+    Booking makeBooking(Booking booking);
 
     /**
      * Method to get booking details
