@@ -1,5 +1,6 @@
 package com.ibm.routemodule.rest;
 
+import java.time.LocalTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ibm.routemodule.entity.BusRoute;
+import com.ibm.routemodule.entity.RouteFare;
 import com.ibm.routemodule.service.BusRouteService;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -33,12 +35,22 @@ public class BusRouteController {
     
     @GetMapping(value="/route/origin/all", produces="application/json")
     public List<String> getAllOrigin() {
-        return busRouteService.getAllOrigin();
+        return busRouteService.getAllOrigins();
     }
     
     @GetMapping(value="/route/destination/all", produces="application/json")
     public List<String> getAllDestination() {
-        return busRouteService.getAllDestination();
+        return busRouteService.getAllDestinations();
+    }
+    
+    @GetMapping(value="/route/slot/all", produces="application/json")
+    public List<LocalTime> getAllSlots(){
+    	return busRouteService.getAllSlots();
+    }
+    
+    @GetMapping(value="/route/fare/{fareID}", produces="application/json")
+    public RouteFare getRouteFareByRouteFareId(@PathVariable int fareID) {
+    	return busRouteService.getRouteFare(fareID);
     }
 
     @GetMapping(value="/route/origin/{origin_city}", produces="application/json")
