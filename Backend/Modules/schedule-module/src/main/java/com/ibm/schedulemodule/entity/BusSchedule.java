@@ -20,9 +20,6 @@ public class BusSchedule {
 
     @Column(name = "route_id")
     private Long routeID;
-
-    @Column(name = "booking_id")
-    private Long bookingID;
     
     @Column(name = "amount")
     private Double amount;
@@ -31,13 +28,12 @@ public class BusSchedule {
     }
 
     public BusSchedule(Long id, LocalDateTime departureTime, LocalDateTime arrivalTime,
-			Long routeID, Long bookingID, Double amount) {
+			Long routeID,Double amount) {
 		super();
 		this.id = id;
 		this.departureTime = departureTime;
 		this.arrivalTime = arrivalTime;
 		this.routeID = routeID;
-		this.bookingID = bookingID;
 		this.amount = amount;
 	}
 
@@ -72,14 +68,6 @@ public class BusSchedule {
 
     public void setRouteID(Long routeId) {
         this.routeID = routeId;
-    }
-
-    public Long getBookingID() {
-        return bookingID;
-    }
-
-    public void setBookingID(Long bookingId) {
-        this.bookingID = bookingId;
     }
     
     public Double getAmount() {

@@ -1,5 +1,6 @@
 package com.ibm.schedulemodule.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -20,19 +21,13 @@ public class BusScheduleServiceImpl implements BusScheduleService {
     }
 
     @Override
-    public Long makeBusSchedule(BusSchedule busSchedule) {
-        BusSchedule createdBusSchedule = busScheduleRepository.save(busSchedule);
-        return createdBusSchedule.getId();
+    public BusSchedule makeBusSchedule(BusSchedule busSchedule) {
+        return busScheduleRepository.save(busSchedule);
     }
 
     @Override
     public List<BusSchedule> findBusScheduleByRouteID(Long routeId) {
         return busScheduleRepository.findByRouteID(routeId);
-    }
-    
-    @Override
-    public List<BusSchedule> findBusScheduleByBookingID(Long bookingId) {
-        return busScheduleRepository.findByBookingID(bookingId);
     }
 
     @Override
@@ -61,6 +56,11 @@ public class BusScheduleServiceImpl implements BusScheduleService {
 	@Override
 	public List<BusSchedule> findAllSchedule() {
 		return busScheduleRepository.findAll();
+	}
+
+	@Override
+	public int getBookedSchedules(LocalDateTime departureTime, Long routeID) {
+		return busScheduleRepository.countByDepartureTimeAndRouteID(departureTime, routeID);
 	}
 
 

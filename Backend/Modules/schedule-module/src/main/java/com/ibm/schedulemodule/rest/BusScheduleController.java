@@ -1,8 +1,14 @@
 package com.ibm.schedulemodule.rest;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.regex.Pattern;
 import java.util.List;
 
 import com.ibm.schedulemodule.entity.BusSchedule;
 import com.ibm.schedulemodule.service.BusScheduleService;
+
+import valueobject.BusScheduleValueObject;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,11 +25,32 @@ public class BusScheduleController {
     public BusScheduleController(BusScheduleService busScheduleService) {
         this.busScheduleService = busScheduleService;
     }
+    
+    @GetMapping(value="/booked/route/{routeID}/departure/{departureTime}", produces="application/json")
+    public ResponseEntity<Integer> getBookedSchedules(@PathVariable Long routeID, @PathVariable String departureTime){
+    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+        LocalDateTime departureDateTime = LocalDateTime.parse(departureTime, formatter);
+      	Integer bookedSchedule = busScheduleService.getBookedSchedules(departureDateTime, routeID);
+      	return ResponseEntity.ok(bookedSchedule);
+    }
 
     @PostMapping(value="/", consumes = "application/json", produces = "application/json")
-    public ResponseEntity<Long> makeBusSchedule(@RequestBody BusSchedule busSchedule) {
-        Long scheduleId = busScheduleService.makeBusSchedule(busSchedule);
-        return ResponseEntity.status(HttpStatus.CREATED).body(scheduleId);
+    public ResponseEntity<BusSchedule> makeBusSchedule(@RequestBody BusScheduleValueObject busScheduleValueObject) {
+        
+    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+    	
+        LocalDateTime arrival = LocalDateTime.parse(busScheduleValueObject.getArrivalTime(), formatter);
+        LocalDateTime departure = LocalDateTime.parse(busScheduleValueObject.getDepartureTime(), formatter);
+    	
+    	BusSchedule busSchedule = new BusSchedule();
+    	
+    	busSchedule.setArrivalTime(arrival);
+    	busSchedule.setDepartureTime(departure);
+    	
+    	busSchedule.setRouteID(busScheduleValueObject.getRouteID());
+    	busSchedule.setAmount(busScheduleValueObject.getAmount());
+   
+    	return ResponseEntity.status(HttpStatus.CREATED).body(busScheduleService.makeBusSchedule(busSchedule));
     }
 
     @GetMapping(value="/findByRoute/{routeId}", produces = "application/json")
@@ -32,30 +59,12 @@ public class BusScheduleController {
         return ResponseEntity.ok(busSchedules);
     }
     
-    @GetMapping(value="/findByBooking/{bookingId}", produces = "application/json")
-    public ResponseEntity<List<BusSchedule>> findBusScheduleByBookinId(@PathVariable Long bookingId) {
-        List<BusSchedule> busSchedules = busScheduleService.findBusScheduleByBookingID(bookingId);
-        return ResponseEntity.ok(busSchedules);
-    }
-    
     @GetMapping(value="/all", produces = "application/json")
     public ResponseEntity<List<BusSchedule>> findAll() {
         List<BusSchedule> busSchedules = busScheduleService.findAllSchedule();
         return ResponseEntity.ok(busSchedules);
     }
-    
 
-    @PutMapping(value="/{id}", consumes = "application/json")
-    public ResponseEntity<BusSchedule> updateBusSchedule(@PathVariable Long id, @RequestBody BusSchedule busSchedule) {
-        BusSchedule existingBusSchedule = busScheduleService.getBusScheduleByID(id);
-        existingBusSchedule.setDepartureTime(busSchedule.getDepartureTime());
-        existingBusSchedule.setArrivalTime(busSchedule.getArrivalTime());
-        existingBusSchedule.setRouteID(busSchedule.getRouteID());
-        existingBusSchedule.setBookingID(busSchedule.getBookingID());
-
-        BusSchedule updatedBusSchedule = busScheduleService.updateBusSchedule(existingBusSchedule);
-        return ResponseEntity.ok(updatedBusSchedule);
-    }
 
     @GetMapping(value="/{id}", produces = "application/json")
     public ResponseEntity<BusSchedule> getBusScheduleById(@PathVariable Long id) {
