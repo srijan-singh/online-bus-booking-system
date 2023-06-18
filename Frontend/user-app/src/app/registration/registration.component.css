@@ -14,12 +14,6 @@ input{
 .card {
   max-width: 450px;
   height: 450px;
-  margin: 0 auto;
-}
-
-.card {
-  max-width: 450px;
-  height: 450px;
   margin: 0 auto;  
   background-image: linear-gradient(to bottom right,  #343a40, #35474e, #343a40, #292e34);
 }

@@ -1,1 +1,57 @@
-<p>booking works!</p>
+<div class="container"> 
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <div class="d-flex align-items-center">
+        <button class="btn btn-dark" (click)="backToDashboard()">Dashboard</button>
+      </div>
+      <form class="d-flex align-items-center">
+        <div class="input-group mx-2">
+          <select name="origin" style="width: 450px;" [(ngModel)]="origin" required class="form-control">
+            <option value="" disabled selected>Select Origin</option>
+            <option *ngFor="let origin of origins" [value]="origin">{{origin}}</option>
+          </select>
+        </div>
+        <div class="input-group mx-2">
+          <select name="destination" style="width: 400px;" [(ngModel)]="destination" required class="form-control">
+            <option value="" disabled selected>Select Destination</option>
+            <option *ngFor="let destination of destinations" [value]="destination" [disabled]="destination === origin">{{destination}}</option>
+          </select>
+        </div>
+        <button class="btn btn-dark" (click)="getRoute()">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  
+  <table class="table table-bordered text-center">
+    <thead>
+      <tr>
+        <th>Origin</th>
+        <th>Destination</th>
+        <th>Distance</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Amount</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td >{{selectedRoute.origin}}</td>
+        <td>{{selectedRoute.destination}}</td>
+        <td>{{selectedRoute.distance}}</td>
+        <td><input type="date" min="today" id="dateInput" name="dateInput" [(ngModel)]="departureDate" required>    
+        </td>
+        <td><select name="time" [(ngModel)] = "departureTime" required>
+            <option selected>Select a time</option>
+            <option *ngFor="let time of times">{{time}}</option>
+          </select>
+        </td>
+        <td>{{this.amount}}</td>
+        <td><button class="btn btn-dark" (click)="bookTicket()">Book Now</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>

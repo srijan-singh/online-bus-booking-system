@@ -50,6 +50,10 @@ export class DashboardComponent implements OnInit{
     
   }
 
+  makeBooking(){
+    this.route.navigate(['/booking']);
+  }
+
   async getBookings(userID : string){
     try {
       const data = await firstValueFrom(this.service.getBookingsByUserID(userID));

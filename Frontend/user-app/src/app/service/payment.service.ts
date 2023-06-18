@@ -8,14 +8,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PaymentService {
 
-  payments : Payment[] = []
+  payments : Payment[] = [];
 
-  constructor(private paymentAPI : PaymentAPI, private http : HttpClient) { }
+  paymentAPI : PaymentAPI = new PaymentAPI();
+
+  constructor(private http : HttpClient) { }
 
   makePayment(payment : Payment){
-    this.http.post<Payment>(this.paymentAPI.makePayment(), payment).subscribe(data => {
-      this.payments.push(data);
-    })
+    return this.http.post<Payment>(this.paymentAPI.makePayment(), payment);
   }
 
   getPaymentByBookingID(bookingID : number){
