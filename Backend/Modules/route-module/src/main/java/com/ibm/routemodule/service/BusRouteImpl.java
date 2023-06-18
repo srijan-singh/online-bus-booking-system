@@ -39,6 +39,11 @@ public class BusRouteImpl implements BusRouteService {
 	public List<String> getAllOrigin() {
 		return busRouteRepo.findAllOrigin();
 	}
+	
+	@Override
+	public List<String> getAllDestination() {
+		return busRouteRepo.findAllDestination();
+	}
 
 	@Override
 	public boolean removebusRoute(int id) {
@@ -52,5 +57,10 @@ public class BusRouteImpl implements BusRouteService {
 		
 		return false;
 	}
-    
+
+	@Override
+	public BusRoute findByOriginAndDestination(String origin, String destination) {
+		return busRouteRepo.findByOriginAndDestination(origin, destination);
+	}
+
 }

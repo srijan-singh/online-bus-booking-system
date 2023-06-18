@@ -9,8 +9,12 @@ public interface BusRouteService {
     int addBusRoute(BusRoute busRoute);
 
     BusRoute getBusRoute(int id);
+    
+    BusRoute findByOriginAndDestination(String origin, String destination);
 
     List<String> getAllOrigin();
+    
+    List<String> getAllDestination();
     
     List<BusRoute> getBusRoutesByOrigin(String origin);
 

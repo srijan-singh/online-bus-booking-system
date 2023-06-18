@@ -35,10 +35,20 @@ public class BusRouteController {
     public List<String> getAllOrigin() {
         return busRouteService.getAllOrigin();
     }
+    
+    @GetMapping(value="/route/destination/all", produces="application/json")
+    public List<String> getAllDestination() {
+        return busRouteService.getAllDestination();
+    }
 
     @GetMapping(value="/route/origin/{origin_city}", produces="application/json")
     public List<BusRoute> getBusRoutesByOrigin(@PathVariable String origin_city) {
         return busRouteService.getBusRoutesByOrigin(origin_city);
+    }
+    
+    @GetMapping(value="/route/origin/{origin_city}/destination/{destination_city}", produces="application/json")
+    public BusRoute getBusRoutesByOriginAndDestination(@PathVariable String origin_city, @PathVariable String destination_city) {
+        return busRouteService.findByOriginAndDestination(origin_city, destination_city);
     }
 
     @GetMapping(value="/route/all", produces="application/json")
