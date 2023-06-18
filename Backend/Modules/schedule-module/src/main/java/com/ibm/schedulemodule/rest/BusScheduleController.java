@@ -50,7 +50,6 @@ public class BusScheduleController {
         BusSchedule existingBusSchedule = busScheduleService.getBusScheduleByID(id);
         existingBusSchedule.setDepartureTime(busSchedule.getDepartureTime());
         existingBusSchedule.setArrivalTime(busSchedule.getArrivalTime());
-        existingBusSchedule.setAvailableSeats(busSchedule.getAvailableSeats());
         existingBusSchedule.setRouteID(busSchedule.getRouteID());
         existingBusSchedule.setBookingID(busSchedule.getBookingID());
 
