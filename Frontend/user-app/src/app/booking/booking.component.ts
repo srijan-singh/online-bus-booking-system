@@ -244,8 +244,9 @@ export class BookingComponent implements OnInit{
 
     if(newDate){
       arrivalDate.setDate(arrivalDate.getDate() + 1);
-      arrivalTimeString = String(arrivalTime);
     }
+
+    arrivalTimeString = String(arrivalTime);
     
     if(arrivalTime < 10){
       arrivalTimeString = "0" + arrivalTimeString;
