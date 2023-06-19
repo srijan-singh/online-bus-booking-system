@@ -1,0 +1,34 @@
+*{
+  font-family: Helvetica;
+}
+
+/* CSS to make the select inputs fill available space */
+.select-fill {
+  width: 100%;
+}
+
+
+table{
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+th{
+  background-image: linear-gradient(to bottom,  #343a40, #35474e, #343a40, #292e34);
+  color: white;
+}
+
+
+a{
+  text-decoration: none;
+}
+
+a.review:hover,
+a.cancel:hover {
+color: blueviolet;
+}
+
+.navbar {
+  border-radius: 5px;
+  background-image: linear-gradient(to bottom,  #343a40, #35474e, #343a40, #292e34);
+}

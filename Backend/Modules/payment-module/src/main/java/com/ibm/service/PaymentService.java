@@ -6,7 +6,7 @@ import com.ibm.entity.Payment;
 
 public interface PaymentService {
 
-	int save(Payment p);
+	Payment save(Payment p);
 	
 	Payment findPaymemtByBookingID(int bookingId);
 	

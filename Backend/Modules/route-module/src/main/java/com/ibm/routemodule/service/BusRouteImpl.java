@@ -1,18 +1,28 @@
 package com.ibm.routemodule.service;
 
+import java.time.LocalTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ibm.routemodule.entity.BusRoute;
+import com.ibm.routemodule.entity.RouteFare;
 import com.ibm.routemodule.repo.BusRouteRepository;
+import com.ibm.routemodule.repo.RouteFareRepo;
+import com.ibm.routemodule.repo.RouteSlotRepo;
 
 @Repository
 public class BusRouteImpl implements BusRouteService {
 
     @Autowired
-    BusRouteRepository busRouteRepo;
+    private BusRouteRepository busRouteRepo;
+    
+    @Autowired
+    private RouteSlotRepo routeSlotRepo;
+    
+    @Autowired
+    private RouteFareRepo routeFareRepository;
 
     @Override
     public int addBusRoute(BusRoute busRoute) {
@@ -36,8 +46,13 @@ public class BusRouteImpl implements BusRouteService {
     }
 
 	@Override
-	public List<String> getAllOrigin() {
+	public List<String> getAllOrigins() {
 		return busRouteRepo.findAllOrigin();
+	}
+	
+	@Override
+	public List<String> getAllDestinations() {
+		return busRouteRepo.findAllDestination();
 	}
 
 	@Override
@@ -52,5 +67,20 @@ public class BusRouteImpl implements BusRouteService {
 		
 		return false;
 	}
-    
+
+	@Override
+	public BusRoute findByOriginAndDestination(String origin, String destination) {
+		return busRouteRepo.findByOriginAndDestination(origin, destination);
+	}
+
+	@Override
+	public RouteFare getRouteFare(int fareId) {
+		return routeFareRepository.findById(fareId).orElse(null);
+	}
+
+	@Override
+	public List<LocalTime> getAllSlots() {
+		return routeSlotRepo.findAllSlot();
+	}
+
 }

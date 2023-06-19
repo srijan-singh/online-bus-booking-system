@@ -12,7 +12,7 @@ export class API{
 
 }
 
-   export class UserAPI extends API{
+export class UserAPI extends API{
     constructor(){
         super();
     }
@@ -42,7 +42,6 @@ export class API{
     }
   }
 
-
   export class BookingAPI extends API {
 
     constructor() {
@@ -51,6 +50,10 @@ export class API{
 
     public getBookingAPI(){
         return this.bookingAPI;
+    }
+
+    public makeBooking(){
+        return this.bookingAPI
     }
 
     public getBookingbyUserID(userID : string){
@@ -67,7 +70,7 @@ export class API{
     
   }
 
-  export class RouteAPI extends API{
+export class RouteAPI extends API{
 
     constructor(){
         super();
@@ -85,8 +88,24 @@ export class API{
         return this.routeAPI+"origin/"+origin;
     }
 
+    public getRouteByOriginAndDestination(origin : string, destination : string){
+        return this.routeAPI+"origin/"+origin+"/destination/"+destination;
+    }
+
     public getAllOrigins(){
         return this.routeAPI+"origin/all"
+    }
+
+    public getAllDestinations(){
+        return this.routeAPI+"destination/all"
+    }
+
+    public getRouteFare(fareID : number = 1){
+        return this.routeAPI+"fare/"+fareID;
+    }
+
+    public getAllSlots(){
+        return this.routeAPI+"slot/all";
     }
 
     public getAllRoutes(){
@@ -110,6 +129,10 @@ export class ScheduleAPI extends API{
 
     public getScheduleByRouteID(routeID : number){
         return this.scheduleAPI+"findByRoute/"+routeID;
+    }
+
+    public getNNumberOfBookedScheduleByDepartureTimeAndRootID(departureTime : string, routeID : number){
+        return this.scheduleAPI+"booked/route/"+routeID+"/departure/"+departureTime
     }
 
     public getAllSchedules(){

@@ -7,6 +7,7 @@
  */
 package com.ibm.bookingmodule.service;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,9 +47,8 @@ public class BookingServiceImpl implements BookingService {
      * @return bookingID
      */
     @Override
-    public int makeBooking(Booking booking) {
-        bookingRepository.save(booking);
-        return booking.getId();
+    public Booking makeBooking(Booking booking) {
+        return bookingRepository.save(booking);
     }
 
     /**
@@ -64,12 +64,14 @@ public class BookingServiceImpl implements BookingService {
     /**
      * Method to get bookings from userID
      * @param userID
-     * @return List<booking>
+     * @return List<booking> (Latest Booking First)
      */
     @Override
-	public List<Booking> getBookingDetailsByUserID(int userID) {
-		return bookingRepository.getBookingsByUserID(userID);
-	}
+    public List<Booking> getBookingDetailsByUserID(int userID) {
+      List<Booking> bookings = bookingRepository.getBookingsByUserID(userID);
+      Collections.reverse(bookings);
+      return bookings;
+    }
 
     /**
      * Method to cancel a booking

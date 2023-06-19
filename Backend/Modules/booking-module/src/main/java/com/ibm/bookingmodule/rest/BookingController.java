@@ -36,7 +36,7 @@ public class BookingController {
      * @return bookingID
      */
     @PostMapping(value="/booking", consumes="application/json")
-    public int bookBusRide(@RequestBody Booking booking) {
+    public Booking bookBusRide(@RequestBody Booking booking) {
         return bookingService.makeBooking(booking);
     }
 

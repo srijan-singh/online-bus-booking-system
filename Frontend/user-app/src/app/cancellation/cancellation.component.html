@@ -1,0 +1,31 @@
+<head>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+</head>
+
+<div class="card mx-auto">
+    <div class="card-title-container">
+      <h2 class="card-title text-center">Cancel Booking</h2>
+    </div>
+    <div class="card-body">      
+    
+      <form (ngSubmit)="cancel()">
+
+        <div class="form-group">
+          <label for="booking">Booking ID</label>
+          <input type="text" class="form-control" id="booking" value="{{this.bookingID}}" disabled>
+        </div>
+
+        <br>
+    
+        <div class="form-group">
+          <label for="reason">Reason</label>
+          <input type="text" name="reason" [(ngModel)]="reason" class="form-control">
+        </div>
+    
+        <br>
+  
+        <button type="submit" class="btn btn-dark">Cancel Booking</button>
+    
+    </form>
+  </div>
+  

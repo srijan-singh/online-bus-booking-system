@@ -1,0 +1,38 @@
+*{
+  font-family: Helvetica;
+}
+
+table {
+    border-radius: 5px;
+    table-layout: fixed;
+  }
+
+.th{
+    background-image: linear-gradient(to bottom,  #343a40, #35474e, #343a40, #292e34);
+    color: white;
+}
+
+.blank-child{
+    border: 1px solid #ccc;
+}
+
+.blank{
+    border: none;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .button-container > button {
+    vertical-align: middle;
+  }
+  
+  

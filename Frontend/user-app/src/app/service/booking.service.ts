@@ -14,6 +14,10 @@ export class BookingService {
 
   constructor(private http : HttpClient){}
 
+  createBooking(booking : Booking){
+    return this.http.post<Booking>(this.bookingAPI.makeBooking(), booking);
+  }
+
   getBookingsByUserID(userID : string){
     return this.http.get<Booking []>(this.bookingAPI.getBookingbyUserID(userID));
   }

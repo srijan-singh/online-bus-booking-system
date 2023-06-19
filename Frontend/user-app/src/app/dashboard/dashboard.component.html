@@ -6,51 +6,47 @@
         <!-- <button class="btn btn-dark" style="margin-left: 10px;">Book Now</button> -->
       </div>
       <form class="d-flex">
-        <button class="btn btn-dark" style="margin-left: 10px;">Book Now</button>
+        <button class="btn btn-dark" (click)="makeBooking()" style="margin-left: 10px;">Book Now</button>
         <button class="btn btn-dark" (click)="getBookings(userId)" style="margin-left: 10px;">Refresh</button>
         <button class="btn btn-dark" (click)="logout()" style="margin-left: 10px;">Sign Out</button>
       </form>
     </div>
   </nav>
-      <table class="table table-bordered text-center">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Seat Number</th>
-            <th>Status</th>
-            <th>Booking Information</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let booking of bookings">
-            <td>{{booking.id}}</td>
-            <td>{{booking.seatNumber}}</td>
-            <td [ngClass]="{
-              'text-primary': booking.status === 'Booked',
-              'text-danger': booking.status === 'Cancelled',
-              'text-success': booking.status === 'Reviewed'
-            }">
-              <strong>{{booking.status}}</strong>
-            </td>
-            <td>
-              <!-- <div id="overlay" (click)="off()">
-                <div id="text">
-                  <div [innerHTML]="schedule_details"></div>
-                </div>
-              </div> -->
-              <button class="btn btn-dark" (click)="getSchedule(booking.scheduleID)">Get Schedule Details</button> 
-            </td>
-            <td>
-              <a (click)="review(booking.id, booking.userID)" class="review btn btn-link" [ngClass]="{
-                'disabled-link': booking.status === 'Reviewed' || booking.status === 'Cancelled'
-              }">Review</a>
-              <a (click)="cancel(booking.id, booking.userID)" class="cancel btn btn-link" [ngClass]="{
-                'disabled-link': booking.status === 'Cancelled'
-              }">Cancel</a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    
+
+  <table class="table table-bordered text-center">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Seat Number</th>
+        <th>Status</th>
+        <th>Ticket</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of bookings">
+        <td>{{booking.id}}</td>
+        <td>{{booking.seatNumber}}</td>
+        <td [ngClass]="{
+          'text-primary': booking.status === 'Booked',
+          'text-danger': booking.status === 'Cancelled',
+          'text-success': booking.status === 'Reviewed'
+        }">
+          <strong>{{booking.status}}</strong>
+        </td>
+        <td>
+          <button class="btn btn-dark" (click)="getTicket(booking.scheduleID, booking.id, booking.seatNumber)">View Ticket</button> 
+        </td>
+        <td>
+          <a (click)="review(booking.id)" class="review btn btn-link" [ngClass]="{
+            'disabled-link': booking.status === 'Reviewed' || booking.status === 'Cancelled'
+          }">Review</a>
+          <a (click)="cancel(booking.id)" class="cancel btn btn-link" [ngClass]="{
+            'disabled-link': booking.status === 'Reviewed' || booking.status === 'Cancelled'
+          }">Cancel</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
 </div>

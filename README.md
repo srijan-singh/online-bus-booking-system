@@ -69,7 +69,9 @@ This class extends the `API` class and provides methods for interacting with the
 * `addRoute()`: Adds a new route.
 * `getRouteByID()`: Gets a route by its ID.
 * `getRouteByOrigin()`: Gets all the routes that start at a given origin.
+* `getRouteByOriginAndDestinnation()`: Gets all the routes with given origin and destination.
 * `getAllOrigins()`: Gets all the origins.
+* `getAllDestinations()`: Gets all the origins.
 * `getAllRoutes()`: Gets all the routes.
 
 ## ScheduleAPI
@@ -108,7 +110,6 @@ This class extends the `API` class and provides methods for interacting with the
 - id: integer, primary key
 - user_id: integer, foreign key to User.id
 - schedule_id: integer, foreign key to BusSchedule.id
-- seat_number: integer
 - status: varchar
 
 ## Review
@@ -127,13 +128,16 @@ This class extends the `API` class and provides methods for interacting with the
 - id: integer, primary key
 - origin: varchar
 - destination: varchar
+- distance: double
+- duration : time
+- available_seats : int
 
 ## BusSchedule
 - id: integer, primary key
 - bus_route_id: integer, foreign key to BusRoute.id
 - departure_time: timestamp
 - arrival_time: timestamp
-- price: float
+- amount: float
 
 ## Payment
 - id: integer, primary key

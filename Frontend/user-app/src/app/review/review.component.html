@@ -1,0 +1,52 @@
+<head>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+</head>
+
+<div class="card mx-auto">
+    <div class="card-title-container">
+      <h2 class="card-title text-center">Review Booking</h2>
+    </div>
+    <div class="card-body">
+      
+    
+      <form (ngSubmit)="review()">
+
+        <div class="form-group">
+          <label for="booking">Booking ID</label>
+          <input type="text" class="form-control" id="booking" value="{{this.bookingID}}" disabled>
+        </div>
+        
+        <br>
+        
+        <div class="form-group">
+
+          <label for="booking">Raiting</label>
+
+          <br>
+
+          <div class="stars">    
+            <input class="star star-5" id="star-5" type="radio" name="star" value=5 [(ngModel)]="raiting"/>
+            <label class="star star-5" for="star-5"></label>
+            <input class="star star-4" id="star-4" type="radio" name="star" value=4 [(ngModel)]="raiting"/>
+            <label class="star star-4" for="star-4"></label>
+            <input class="star star-3" id="star-3" type="radio" name="star" value=3 [(ngModel)]="raiting"/>
+            <label class="star star-3" for="star-3"></label>
+            <input class="star star-2" id="star-2" type="radio" name="star" value=2 [(ngModel)]="raiting"/>
+            <label class="star star-2" for="star-2"></label>
+            <input class="star star-1" id="star-1" type="radio" name="star" value=1 [(ngModel)]="raiting"/>
+            <label class="star star-1" for="star-1"></label>
+          </div>
+        </div>
+    
+        <div class="form-group">
+          <label for="comment">Comment</label>
+          <input type="text" name="comment" [(ngModel)]="comment" class="form-control">
+        </div>
+    
+        <br>
+  
+        <button type="submit" class="btn btn-dark">Review Booking</button>
+    
+    </form>
+  </div>
+  

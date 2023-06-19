@@ -1,0 +1,45 @@
+*{
+    font-family: Helvetica;
+    color: #fff;
+}
+  
+  a{
+    text-decoration: none;
+}
+
+input{
+  color: black;
+}
+
+.card {
+  max-width: 450px;
+  height: 450px;
+  margin: 0 auto;
+  background-image: linear-gradient(to bottom right,  #343a40, #35474e, #343a40, #292e34);
+}
+
+.card-title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.card-title {
+  margin: 0;
+}
+
+.card-body{
+  margin-top: -50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+}
+
+.card button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+

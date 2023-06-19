@@ -1,0 +1,68 @@
+<div class="container"> 
+
+    <table class="table table-bordered text-center" id="ticket">
+        
+        <thead> 
+            <tr>
+                <th colspan="9" class="th">
+                    <h2>Ticket</h2>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="blank">
+                <th class="blank-child" colspan="2">PNR</th>
+                <td class="blank-child" colspan="2">{{this.schedule.id}}</td>  
+                
+                <td style="border-color: #ccc;" colspan="1"></td>
+
+                <th class="blank-child"  colspan="2">Seat</th>           
+                <td class="blank-child"  colspan="2">{{this.seatNumber}}</td>  
+            </tr>
+            
+            <tr class="blank">
+                <th class="blank-child"  colspan="2">Booking ID</th>
+                <td class="blank-child"   colspan="2">{{this.bookingID}}</td>
+                
+                <td style="border-color: #ccc;" colspan="1"></td>
+
+                <th class="blank-child"  colspan="2">Distance</th>
+                <td class="blank-child"  colspan="2">{{this.bus_route.distance}}</td>
+                
+            </tr>
+
+            <tr class="blank">
+                <th class="blank-child"  colspan="2">Amount</th>
+                <td class="blank-child"   colspan="2">{{this.schedule.amount}}</td>
+
+                <td style="border-color: #ccc;" colspan="1"></td>
+
+                <th class="blank-child"  colspan="2">Duration</th>
+                <td class="blank-child"  colspan="2">{{this.bus_route.duration}}</td>
+            </tr>
+            <tr class="blank">
+                <th colspan="4" class="th">Origin</th>
+                <th colspan="1"></th>
+                <th colspan="4" class="th">Destination</th>
+            </tr>
+            <tr class="blank">
+                <th class="blank-child" >City</th>
+                <td class="blank-child" >{{this.bus_route.origin}}</td>
+                
+                <th class="blank-child" >Departure</th>
+                <td class="blank-child" >{{this.departure}}</td>
+
+                <td style="border-color: #ccc;" colspan="1"></td>
+                
+                <th class="blank-child" >City</th>            
+                <td class="blank-child" >{{this.bus_route.destination}}</td>
+
+                <th class="blank-child" >Arrival</th>           
+                <td class="blank-child" >{{this.arrival}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="button-container">
+        <button (click)="backToDashboard()" class="btn btn-dark">Dashboard</button>
+    </div>
+</div>
