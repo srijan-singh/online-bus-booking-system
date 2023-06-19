@@ -144,3 +144,46 @@ This class extends the `API` class and provides methods for interacting with the
 - booking_id: integer, foreign key to Booking.id
 - amount: float
 
+# Querry
+
+## Old Values
+
+    INSERT INTO bus_route (route_id, destination, origin, distance, duration, available_seats)
+    VALUES (107, 'Delhi', 'Agra', 220, '04:00:00', 30),
+           (109, 'Varanasi', 'Agra', 612, '10:00:00', 30),
+           (110, 'Varanasi', 'Delhi', 821, '13:00:00', 30),
+           (112, 'Agra', 'Delhi', 220, '04:00:00', 30),
+           (113, 'Delhi', 'Varanasi', 821, '13:00:00', 30),
+           (115, 'Agra', 'Varanasi', 612, '10:00:00', 30);
+
+## New Values
+
+    INSERT INTO bus_route (route_id, destination, origin, distance, duration, available_seats)
+    VALUES
+    (107, 'Delhi', 'Agra', 220, '4:00:00', 30),
+    (109, 'Varanasi', 'Agra', 612, '10:00:00', 30),
+    (110, 'Varanasi', 'Delhi', 821, '13:00:00', 30),
+    (112, 'Agra', 'Delhi', 220, '4:00:00', 30),
+    (113, 'Delhi', 'Varanasi', 821, '13:00:00', 30),
+    (115, 'Agra', 'Varanasi', 612, '10:00:00', 30),
+    (116, 'Lucknow', 'Delhi', 227, '4:00:00', 30),
+    (117, 'Ayodhya', 'Lucknow', 144, '3:00:00', 30),
+    (118, 'Dehradun', 'Delhi', 235, '5:00:00', 30),
+    (119, 'Nainital', 'Dehradun', 51, '1:00:00', 30),
+    (120, 'Mussoorie', 'Dehradun', 35, '1:00:00', 30),
+    (121, 'Delhi', 'Lucknow', 227, '4:00:00', 30),
+    (122, 'Lucknow', 'Ayodhya', 144, '3:00:00', 30),
+    (123, 'Delhi', 'Dehradun', 235, '5:00:00', 30),
+    (124, 'Dehradun', 'Nainital', 51, '1:00:00', 30),
+    (125, 'Dehradun', 'Mussoorie', 35, '1:00:00', 30),
+    (126, 'Lucknow', 'Varanasi', 215, '4:00:00', 30),
+    (127, 'Ayodhya', 'Varanasi', 165, '3:00:00', 30),
+    (128, 'Nainital', 'Varanasi', 513, '9:00:00', 30),
+    (129, 'Mussoorie', 'Varanasi', 548, '9:00:00', 30),
+    (130, 'Lucknow', 'Agra', 203, '4:00:00', 30),
+    (131, 'Nainital', 'Agra', 508, '8:00:00', 30),
+    (132, 'Mussoorie', 'Agra', 543, '9:00:00', 30),
+    (133, 'Nainital', 'Delhi', 335, '6:00:00', 30),
+    (134, 'Mussoorie', 'Delhi', 360, '7:00:00', 30);
+
+
