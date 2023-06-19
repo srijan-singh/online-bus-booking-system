@@ -141,7 +141,12 @@ export class BookingComponent implements OnInit{
     .then(() => this.makeSchedule())
     .then(() => this.makeBooking())
     .then(() => this.makePayment())
-    .then(() => this.backToDashboard())
+    .then(() => {
+      localStorage.setItem("bookingID", String(this.payment.bookingID));
+      localStorage.setItem("paymentID", String(this.payment.id));
+      localStorage.setItem("amount", String(this.payment.amount));
+      this.paymentGateway()
+    })
     .catch((error) => {
       console.error('Error:', error);
       // Handle error if needed
@@ -208,7 +213,6 @@ export class BookingComponent implements OnInit{
         data => {
           this.payment = data;
           console.log(this.payment);
-          alert("Booking Successful! with Payment Id: " + data.id);
           resolve();
         },
         error => {
@@ -270,6 +274,10 @@ export class BookingComponent implements OnInit{
   setPayment(bookingID : number){
     this.payment.bookingID = bookingID;
     this.payment.amount = this.amount;
+  }
+
+  paymentGateway(){
+    this.route.navigate(['/payment']);
   }
 
   backToDashboard(){
