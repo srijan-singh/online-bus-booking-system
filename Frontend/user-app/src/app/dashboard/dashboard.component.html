@@ -19,7 +19,7 @@
         <th>ID</th>
         <th>Seat Number</th>
         <th>Status</th>
-        <th>Booking Information</th>
+        <th>Ticket</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -35,19 +35,14 @@
           <strong>{{booking.status}}</strong>
         </td>
         <td>
-          <!-- <div id="overlay" (click)="off()">
-            <div id="text">
-              <div [innerHTML]="schedule_details"></div>
-            </div>
-          </div> -->
-          <button class="btn btn-dark" (click)="getSchedule(booking.scheduleID)">Get Schedule Details</button> 
+          <button class="btn btn-dark" (click)="getTicket(booking.scheduleID, booking.id, booking.seatNumber)">View Ticket</button> 
         </td>
         <td>
-          <a (click)="review(booking.id, booking.userID)" class="review btn btn-link" [ngClass]="{
+          <a (click)="review(booking.id)" class="review btn btn-link" [ngClass]="{
             'disabled-link': booking.status === 'Reviewed' || booking.status === 'Cancelled'
           }">Review</a>
-          <a (click)="cancel(booking.id, booking.userID)" class="cancel btn btn-link" [ngClass]="{
-            'disabled-link': booking.status === 'Cancelled'
+          <a (click)="cancel(booking.id)" class="cancel btn btn-link" [ngClass]="{
+            'disabled-link': booking.status === 'Reviewed' || booking.status === 'Cancelled'
           }">Cancel</a>
         </td>
       </tr>
