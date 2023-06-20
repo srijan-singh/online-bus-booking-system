@@ -151,10 +151,12 @@ This class extends the `API` class and provides methods for interacting with the
 ### Change Password
 
     ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+    FLUSH PRIVILEGES;
 
 ### Create Database
 
     CREATE DATABASE training;
+    USE training;
 
 ### Route
 
@@ -177,14 +179,3 @@ This class extends the `API` class and provides methods for interacting with the
            (3, '14:00:00'),
            (4, '16:00:00'),
            (5, '18:00:00');
-
-
-
-## Schedule Population
-
-        INSERT INTO bus_schedule (arrival_time, departure_time, route_id, amount)
-        VALUES
-        (1, '2023-06-14 15:00:00', '2023-06-14 12:00:00', 107, 610),
-        (2, '2023-06-19 23:00:00', '2023-06-19 20:00:00', 113, 910.5),
-        (3, '2023-06-20 11:00:00', '2023-06-20 09:00:00', 109, 806),
-        (4, '2023-06-21 15:00:00', '2023-06-21 13:00:00', 110, 910.5);
