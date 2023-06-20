@@ -1,5 +1,7 @@
 package com.example.emailsender.service;
 
+import com.example.emailsender.entity.EmailEntity;
+
 public interface EmailSenderService {
-	void sendEmail(String to, String subject,String text);
+	EmailEntity sendEmail(String to, String subject,String text);
 }
