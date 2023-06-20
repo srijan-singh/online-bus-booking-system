@@ -171,3 +171,38 @@ This class extends the `API` class and provides methods for interacting with the
 - booking_id: integer, foreign key to Booking.id
 - amount: float
 
+# Querry
+
+## Configuration
+
+### Change Password
+
+    ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+    FLUSH PRIVILEGES;
+
+### Create Database
+
+    CREATE DATABASE training;
+    USE training;
+
+### Route
+
+    INSERT INTO bus_route (route_id, destination, origin, distance, duration, available_seats)
+    VALUES (107, 'Delhi', 'Agra', 220, '04:00:00', 30),
+           (109, 'Varanasi', 'Agra', 612, '10:00:00', 30),
+           (110, 'Varanasi', 'Delhi', 821, '13:00:00', 30),
+           (112, 'Agra', 'Delhi', 220, '04:00:00', 30),
+           (113, 'Delhi', 'Varanasi', 821, '13:00:00', 30),
+           (115, 'Agra', 'Varanasi', 612, '10:00:00', 30);
+
+### Fare
+    INSERT INTO route_fare (fare_id, basic_cost, cost_per_km)
+    VALUES (1, 500, 0.5);
+    
+### Slot
+    INSERT INTO route_slot (slot_id, slot)
+    VALUES (1, '10:00:00'),
+           (2, '12:00:00'),
+           (3, '14:00:00'),
+           (4, '16:00:00'),
+           (5, '18:00:00');
