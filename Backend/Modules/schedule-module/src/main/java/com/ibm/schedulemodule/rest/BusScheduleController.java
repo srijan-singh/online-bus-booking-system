@@ -1,7 +1,6 @@
 package com.ibm.schedulemodule.rest;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.regex.Pattern;
 import java.util.List;
 
 import com.ibm.schedulemodule.entity.BusSchedule;

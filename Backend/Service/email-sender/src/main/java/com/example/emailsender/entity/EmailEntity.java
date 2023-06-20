@@ -5,6 +5,13 @@ public class EmailEntity {
 	private String to;
 	private String subject;
 	private String text;
+	
+	public EmailEntity(String to, String subject, String text) {
+		this.to = to;
+		this.subject = subject;
+		this.text = text;
+	}
+
 	public EmailEntity() {
 	}
 

@@ -1,7 +1,6 @@
 package com.example.emailsender.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.emailsender.entity.EmailEntity;
 import com.example.emailsender.service.EmailSenderService;
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class EmailController {
 
@@ -23,9 +22,8 @@ public class EmailController {
 	}
 	
 	@PostMapping("/send-email")
-		public ResponseEntity sendEmail(@RequestBody EmailEntity emailMessage) {
-		this.emailSenderService.sendEmail(emailMessage.getTo(), emailMessage.getSubject(), emailMessage.getText());
-		return ResponseEntity.ok("Success");
+		public EmailEntity sendEmail(@RequestBody EmailEntity emailMessage) {
+		return this.emailSenderService.sendEmail(emailMessage.getTo(), emailMessage.getSubject(), emailMessage.getText());
 		
 	}
 }

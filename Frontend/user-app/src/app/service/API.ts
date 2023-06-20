@@ -10,6 +10,8 @@ export class API{
 
     protected paymentAPI =  "http://localhost:9005/" + "payment/";
 
+    protected emailAPI = "http://localhost:9006/"+"send-email";
+
 }
 
 export class UserAPI extends API{
@@ -156,5 +158,12 @@ export class PaymentAPI extends API{
 
     public getAllPayments(){
         return this.paymentAPI+"all";
+    }
+}
+
+export class EmailAPI extends API{
+
+    public sendEmail(){
+        return this.emailAPI;
     }
 }
