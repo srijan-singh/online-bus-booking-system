@@ -9,6 +9,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
 import { ReviewComponent } from './review/review.component';
 import { CancellationComponent } from './cancellation/cancellation.component';
+import { PayComponent } from './pay/pay.component';
 
 const routes: Routes = [
   
@@ -35,8 +36,13 @@ const routes: Routes = [
   // Cancellation
   {path: 'cancellation', component:CancellationComponent},
 
+  //payment third party
+  {path:'pay', component:PayComponent },
+  
   // Default
   {path: '**', redirectTo: '/login', pathMatch: 'full'},
+
+  
 ];
 
 @NgModule({

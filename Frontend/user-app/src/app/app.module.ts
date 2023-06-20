@@ -15,6 +15,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
 import { ReviewComponent } from './review/review.component';
 import { CancellationComponent } from './cancellation/cancellation.component';
+import { PayComponent } from './pay/pay.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { CancellationComponent } from './cancellation/cancellation.component';
     PaymentGatewayComponent,
     ReviewComponent,
     CancellationComponent,
+    PayComponent,
   ],
   imports: [
     BrowserModule,
