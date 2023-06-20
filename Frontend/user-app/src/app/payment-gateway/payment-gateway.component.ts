@@ -36,6 +36,7 @@ export class PaymentGatewayComponent implements OnInit {
   ngOnDestroy() {
     clearInterval(this.reverseTimerInterval);
     localStorage.removeItem('message');
+    
   }
 
 

@@ -31,7 +31,7 @@ export class PaymentComponent implements OnInit{
   }
 
   payment(){
-
+    
     alert("You will be redirected to Payment Gateway!");
     
     localStorage.removeItem('payment');
@@ -40,7 +40,7 @@ export class PaymentComponent implements OnInit{
 
     localStorage.setItem("message", this.message);
 
-    this.route.navigate(['/payment-gateway'])
+    this.route.navigate(['/pay'])
   }
 
 }
