@@ -146,7 +146,15 @@ This class extends the `API` class and provides methods for interacting with the
 
 # Querry
 
-## Old Values
+## Configuration
+
+### Change Password
+
+    ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+
+### Create Database
+
+    CREATE DATABASE training;
 
 ### Route
 
