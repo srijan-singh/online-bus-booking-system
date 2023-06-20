@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Payment-Page</title>
+  <link rel="stylesheet" href="pay.component.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="mainscreen">
+    <!-- <img src="https://image.freepik.com/free-vector/purple-background-with-neon-frame_52683-34124.jpg"  class="bgimg " alt="">--> 
+      <div class="card">
+        <div class="leftside">
+          <img
+            src="https://img.freepik.com/free-vector/hand-holding-debit-credit-card-near-scanner-electronic-terminal-making-purchase-smart-transaction-via-digital-machine-flat-vector-illustration-contactless-payment-emv-commerce-concept_74855-21136.jpg?w=740&t=st=1686807701~exp=1686808301~hmac=802f93173d2120cfb9d25caafe3909a54a8fe9c6ac99056f6c16c10f185d7907"
+            class="product"
+           
+          />
+        </div>
+        <div class="rightside">
+          <form (ngSubmit)="save()" action="" class="was-validated" #addFrm="ngForm">
+            <h2>Payment Information</h2>
+            <p>Cardholder Name</p>
+            <input type="text" class="inputbox" name="name" [(ngModel)]="pay.name" id="cardHolderName" required placeholder="Card Holder Name" pattern="[A-Z][a-zA-Z]{3,}" #name="ngModel">
+            <div *ngIf="name.dirty && name.invalid" class="alert alert-danger">Invalid Code</div><br>
+            <p>Card Number</p>
+            <input type="number" class="inputbox" name="card_number" [(ngModel)]="pay.digit" id="card_number" required pattern="[0-9]{16}" #digit="ngModel"/>
+            <div *ngIf="digit.dirty && digit.invalid" class="alert alert-danger">Invalid Code</div><br>
+            <p>Card Type</p>
+            <select class="inputbox" name="card_type" id="card_type" required>
+              <option value="">--Select a Card Type--</option>
+              <option value="Visa">Visa</option>
+              <option value="RuPay">RuPay</option>
+              <option value="MasterCard">MasterCard</option>
+            </select>
+<div class="expcvv">
+
+            <p class="expcvv_text">Expiry</p>
+            <input type="date" class="inputbox" name="exp_date" id="exp_date" required />
+
+            <p class="expcvv_text2">CVV</p>
+            <input type="password" class="inputbox" name="cvv" [(ngModel)]="pay.cvv" id="cvv" required pattern="[0-9]{3}" #cvv="ngModel" />
+            <div *ngIf="cvv.dirty && cvv.invalid" class="alert alert-danger">Invalid Code</div><br>
+        </div>
+            <p></p>
+            <button type="submit" (click)="save()" class="button" [disabled]="!addFrm.valid">Pay</button>
+          </form>
+        </div>
+      </div>
+    </div>
+<!-- partial -->
+</body>
+</html>
