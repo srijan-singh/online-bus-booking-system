@@ -21,8 +21,8 @@
             </tr>
             
             <tr class="blank">
-                <th class="blank-child"  colspan="2">Booking ID</th>
-                <td class="blank-child"   colspan="2">{{this.bookingID}}</td>
+                <th class="blank-child"  colspan="2">Name</th>
+                <td class="blank-child"   colspan="2">{{this.userName}}</td>
                 
                 <td style="border-color: #ccc;" colspan="1"></td>
 
@@ -64,5 +64,7 @@
     </table>
     <div class="button-container">
         <button (click)="backToDashboard()" class="btn btn-dark">Dashboard</button>
+
+        <button (click)="emailTicket()" class="btn btn-dark">Email Ticket</button>
     </div>
 </div>
