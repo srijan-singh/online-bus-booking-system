@@ -125,10 +125,11 @@ This class extends the `API` class and provides methods for interacting with the
 
 ## Entities and Relationships
 
-![ER-Diagram](https://github.com/srijan-singh/online-bus-booking-system/blob/main/res/ER.jpeg)
+![ERDiagram](https://github.com/srijan-singh/online-bus-booking-system/assets/65380027/cd79482b-faf6-404c-a59e-56566a182629)
 
 ## User
 - id: integer, primary key
+
 - name: varchar
 - email: varchar
 - password: varchar
@@ -170,4 +171,63 @@ This class extends the `API` class and provides methods for interacting with the
 - id: integer, primary key
 - booking_id: integer, foreign key to Booking.id
 - amount: float
+
+# Supportive Table
+
+## Table RouteFare 
+- fare_id: integer, primary key
+- basic_cost: double
+- cout_per_km: double
+
+## Table RouteSlot 
+- slot_id: integer, primary key
+- slot: timestamp
+
+# Configuration
+
+## Backend
+
+- Java Development Kit 20 [Download Link](https://www.oracle.com/java/technologies/downloads/)
+- MySQL Community Server 8 [Download Link](https://dev.mysql.com/downloads/mysql/) 
+
+## Frontend
+
+- Node (v18.16.0)
+- Angular (v16.0.2)
+
+## Database Population
+
+### Change Password
+
+    ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+    FLUSH PRIVILEGES;
+
+### Create Database
+
+    CREATE DATABASE training;
+    USE training;
+
+### Route
+
+    INSERT INTO bus_route (route_id, destination, origin, distance, duration, available_seats)
+    VALUES (107, 'Delhi', 'Agra', 220, '04:00:00', 30),
+           (109, 'Varanasi', 'Agra', 612, '10:00:00', 30),
+           (110, 'Varanasi', 'Delhi', 821, '13:00:00', 30),
+           (112, 'Agra', 'Delhi', 220, '04:00:00', 30),
+           (113, 'Delhi', 'Varanasi', 821, '13:00:00', 30),
+           (115, 'Agra', 'Varanasi', 612, '10:00:00', 30);
+
+### Fare
+    INSERT INTO route_fare (fare_id, basic_cost, cost_per_km)
+    VALUES (1, 500, 0.5);
+    
+### Slot
+    INSERT INTO route_slot (slot_id, slot)
+    VALUES (1, '10:00:00'),
+           (2, '12:00:00'),
+           (3, '14:00:00'),
+           (4, '16:00:00'),
+           (5, '18:00:00');
+
+
 
