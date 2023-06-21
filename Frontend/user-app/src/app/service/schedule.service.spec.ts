@@ -6,11 +6,12 @@ describe('ScheduleService', () => {
   let service: ScheduleService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(ScheduleService);
+    TestBed.configureTestingModule({}); // Configure TestBed for testing
+
+    service = TestBed.inject(ScheduleService); // Inject the ScheduleService
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(service).toBeTruthy(); // Ensure that the service is created
   });
 });
