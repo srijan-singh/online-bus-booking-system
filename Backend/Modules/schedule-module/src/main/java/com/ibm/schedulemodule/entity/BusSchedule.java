@@ -1,6 +1,5 @@
 package com.ibm.schedulemodule.entity;
 
-
 import java.time.LocalDateTime;
 import javax.persistence.*;
 
@@ -10,35 +9,34 @@ public class BusSchedule {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id; // Unique ID for the bus schedule
 
     @Column(name = "departure_time")
-    private LocalDateTime departureTime;
+    private LocalDateTime departureTime; // Departure time of the bus schedule
 
     @Column(name = "arrival_time")
-    private LocalDateTime arrivalTime;
+    private LocalDateTime arrivalTime; // Arrival time of the bus schedule
 
     @Column(name = "route_id")
-    private Long routeID;
+    private Long routeID; // ID of the route associated with the bus schedule
     
     @Column(name = "amount")
-    private Double amount;
+    private Double amount; // Amount of the bus schedule
 
-	public BusSchedule() {
+    public BusSchedule() {
     }
 
     public BusSchedule(Long id, LocalDateTime departureTime, LocalDateTime arrivalTime,
-			Long routeID,Double amount) {
-		super();
-		this.id = id;
-		this.departureTime = departureTime;
-		this.arrivalTime = arrivalTime;
-		this.routeID = routeID;
-		this.amount = amount;
-	}
+            Long routeID, Double amount) {
+        super();
+        this.id = id;
+        this.departureTime = departureTime;
+        this.arrivalTime = arrivalTime;
+        this.routeID = routeID;
+        this.amount = amount;
+    }
 
-
-	public Long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -71,12 +69,10 @@ public class BusSchedule {
     }
     
     public Double getAmount() {
-		return amount;
-	}
+        return amount;
+    }
 
-	public void setAmount(Double amount) {
-		this.amount = amount;
-	}
-
-
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
 }
