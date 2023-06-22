@@ -4,22 +4,12 @@ Group: Java Jedi
 
 <img src ="https://img.shields.io/github/repo-size/srijan-singh/online-bus-booking-system?color=succeess&label=Size"> <img src="https://img.shields.io/github/directory-file-count/srijan-singh/online-bus-booking-system/Backend/Modules?color=yellow&label=%20Backend%20Modules"> <img src="https://img.shields.io/github/directory-file-count/srijan-singh/online-bus-booking-system/Frontend?color=orange&label=%20Frontend%20Modules"> 
 
-
 # Frontend
 
-## User App
 
-### Sign Up
+https://github.com/srijan-singh/online-bus-booking-system/assets/65380027/878d79f8-894f-4656-8cdc-e899675637df
 
-![Register](https://github.com/srijan-singh/online-bus-booking-system/blob/main/res/localhost_4200_register.png)
 
-### Sign In
-
-![Login](https://github.com/srijan-singh/online-bus-booking-system/blob/main/res/localhost_4200_login.png)
-
-### Dashboard
-
-![Dashboard](https://github.com/srijan-singh/online-bus-booking-system/blob/main/res/localhost_4200_dashboard.png)
 
 # System Architecture for Online Bus Booking
 
